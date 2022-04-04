@@ -15,13 +15,13 @@ CREATE TABLE `plat` (
   `id` int(11) NOT NULL,
   `nom` varchar(120) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `prix` float,
+  `prix` float
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `boisson` (
   `id` int(11) NOT NULL,
   `nom` varchar(120) NOT NULL,
-  `prix` float,
+  `prix` float
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `table` (
@@ -32,7 +32,7 @@ CREATE TABLE `table` (
 CREATE TABLE `reservation` (
     `id` int NOT NULL,
     `email` varchar(255) NOT NULL,
-    `status` varchar(255) NOT NULL,
+    `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `plat_reservation` (
