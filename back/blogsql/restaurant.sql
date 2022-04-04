@@ -19,16 +19,34 @@ CREATE TABLE `plat` (
   `price` decimal
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+INSERT INTO `plat` (`id`, `name`, `description`, `price`) VALUES
+    (1, 'Plat n°1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos officiis fuga eligendi. Itaque voluptas, possimus nemo nesciunt laudantium nostrum explicabo non blanditiis similique ad optio tempore qui ipsam quibusdam a.', 12),
+    (2, 'Plat n°2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos officiis fuga eligendi. Itaque voluptas, possimus nemo nesciunt laudantium nostrum explicabo non blanditiis similique ad optio tempore qui ipsam quibusdam a.', 10),
+    (3, 'Plat n°3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos officiis fuga eligendi. Itaque voluptas, possimus nemo nesciunt laudantium nostrum explicabo non blanditiis similique ad optio tempore qui ipsam quibusdam a.', 9);
+
 CREATE TABLE `boisson` (
   `id` int(11) NOT NULL,
   `name` varchar(120) NOT NULL,
   `price` decimal
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+INSERT INTO `boisson` (`id`, `name`, `price`) VALUES
+  (1, 'Boisson n°1', 5),
+  (2, 'Boisson n°2', 4),
+  (3, 'Boisson n°3', 7);
+
 CREATE TABLE `table` (
     `id` int NOT NULL,
     `slot` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `table` (`id`, `slot`) VALUES
+  (1, 2),
+  (2, 2),
+  (3, 4),
+  (4, 4);
 
 CREATE TABLE `reservation` (
     `id` int NOT NULL,
