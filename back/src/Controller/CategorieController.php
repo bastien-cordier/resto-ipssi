@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Model\CategorieModel;
+use App\Model\UserModel;
 use Core\Controller\DefaultController;
 
 final class CategorieController extends DefaultController{
@@ -10,7 +10,7 @@ final class CategorieController extends DefaultController{
 
     public function __construct()
     {
-        $this->model = new CategorieModel;
+        $this->model = new UserModel;
     }
 
     public function index ()

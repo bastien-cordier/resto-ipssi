@@ -3,7 +3,7 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Categorie extends DefaultEntity{
+final class Plat extends DefaultEntity{
 
     // php@8.1
     // private readonly int $id;
@@ -12,6 +12,10 @@ final class Categorie extends DefaultEntity{
     private int $id;
 
     private string $name;
+
+    private string $description;
+
+    private float $price;
 
     public function __invoke()
     {
@@ -55,5 +59,35 @@ final class Categorie extends DefaultEntity{
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
 
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPrice(float $price): void
+    {
+        $this->price = $price;
+    }
 }
