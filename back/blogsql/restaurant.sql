@@ -1,9 +1,10 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+DROP DATABASE IF EXISTS restaurant;
 CREATE DATABASE IF NOT EXISTS restaurant;
 
-USE blog;
+USE restaurant;
 
 CREATE TABLE `user`(
     `id` int NOT NULL,
@@ -15,13 +16,13 @@ CREATE TABLE `plat` (
   `id` int(11) NOT NULL,
   `name` varchar(120) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `price` float,
+  `price` decimal
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `boisson` (
   `id` int(11) NOT NULL,
   `name` varchar(120) NOT NULL,
-  `price` float,
+  `price` decimal
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `table` (
@@ -37,7 +38,7 @@ CREATE TABLE `reservation` (
 
 CREATE TABLE `plat_reservation` (
     `id` int NOT NULL,
-    `idTable` int NOT NULL,
+    `idPlat` int NOT NULL,
     `idReservation` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -57,10 +58,40 @@ CREATE TABLE `table_reservation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+    ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `boisson`
+    ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `plat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMEN;
+    ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `table`
+    ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `reservation`
+    ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `plat_reservation`
+    ADD PRIMARY KEY (`id`),
+  ADD KEY `idPlat` (`idPlat`),
+  ADD KEY `idReservation` (`idReservation`);
+
+ALTER TABLE `boisson_reservation`
+    ADD PRIMARY KEY (`id`),
+  ADD KEY `idBoisson` (`idBoisson`),
+  ADD KEY `idReservation` (`idReservation`);
+
+ALTER TABLE `table_reservation`
+    ADD PRIMARY KEY (`id`),
+  ADD KEY `idTable` (`idTable`),
+  ADD KEY `idReservation` (`idReservation`);
+
+ALTER TABLE `user`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `plat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `boisson`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
@@ -79,4 +110,15 @@ ALTER TABLE `boisson_reservation`
 
 ALTER TABLE `table_reservation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-  
+
+ALTER TABLE `plat_reservation`
+    ADD CONSTRAINT `plat_ibfk_1` FOREIGN KEY (`idPlat`) REFERENCES `plat` (`id`),
+    ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`);
+
+ALTER TABLE `boisson_reservation`
+    ADD CONSTRAINT `boisson_ibfk_1` FOREIGN KEY (`idBoisson`) REFERENCES `boisson` (`id`),
+    ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`);
+
+ALTER TABLE `table_reservation`
+    ADD CONSTRAINT `table_ibfk_1` FOREIGN KEY (`idTable`) REFERENCES `table` (`id`),
+    ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`);
