@@ -7,7 +7,7 @@ CREATE DATABASE IF NOT EXISTS restaurant;
 
 USE blog;
 
-CREATE TABLE `restaurant_user`(
+CREATE TABLE `user`(
     `id` int NOT NULL,
     `username` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL
@@ -15,15 +15,15 @@ CREATE TABLE `restaurant_user`(
 
 CREATE TABLE `plat` (
   `id` int(11) NOT NULL,
-  `nom` varchar(120) NOT NULL,
+  `name` varchar(120) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `prix` float,
+  `price` float,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `boisson` (
   `id` int(11) NOT NULL,
-  `nom` varchar(120) NOT NULL,
-  `prix` float,
+  `name` varchar(120) NOT NULL,
+  `price` float,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `table` (
@@ -39,23 +39,23 @@ CREATE TABLE `reservation` (
 
 CREATE TABLE `plat_reservation` (
     `id` int NOT NULL,
-    `id_table` int NOT NULL,
-    `id_reservation` int NOT NULL
+    `idTable` int NOT NULL,
+    `idReservation` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `boisson_reservation` (
     `id` int NOT NULL,
-    `id_boisson` int NOT NULL,
-    `id_reservation` int NOT NULL
+    `idBoisson` int NOT NULL,
+    `idReservation` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `table_reservation` (
     `id` int NOT NULL,
-    `id_table` int NOT NULL,
-    `id_reservation` int NOT NULL,
+    `idTable` int NOT NULL,
+    `idReservation` int NOT NULL,
     `startDate` DATETIME NOT NULL,
     `endDate` DATETIME NOT NULL,
-    `personne` int NOT NULL
+    `nbPoeple` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `user`
