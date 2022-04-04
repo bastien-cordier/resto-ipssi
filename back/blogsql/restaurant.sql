@@ -32,7 +32,7 @@ CREATE TABLE `table` (
 CREATE TABLE `reservation` (
     `id` int NOT NULL,
     `email` varchar(255) NOT NULL,
-    `status` varchar(255) NOT NULL,
+    `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `plat_reservation` (
