@@ -1,7 +1,8 @@
 import { Fragment } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 
-import Navbar from "./components/Header/Navbar";
+import Header from "./components/Header/Navbar";
 import Home from "./pages/Home";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,7 +11,7 @@ function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        <Navbar />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
