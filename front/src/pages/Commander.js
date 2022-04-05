@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Commander() {
-  return (
-    <div>Commander</div>
-  )
+  return <div>Commandez votre pizza</div>;
 }
 
-export default Commander
+export default Commander;
