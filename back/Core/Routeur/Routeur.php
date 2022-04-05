@@ -17,7 +17,6 @@ final class Routeur {
                 throw new \Exception("Aucune class", 400);
             }
             $name = str_replace( " ", "", ucwords(str_replace('_', ' ', $path[3])));
-            var_dump($name);
             $controllerName = "App\Controller\\".$name. "Controller";
 
             $controller = new $controllerName();
