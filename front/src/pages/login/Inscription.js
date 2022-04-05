@@ -22,7 +22,7 @@ export default class Inscription extends Component {
         .then(() => {
           Swal.fire("", "Inscription réussi", "success").then(() => {
             window.location.href = "/";
-          });           
+          });
         })
         .catch((error) => {
           console.error(error.message);
@@ -34,22 +34,44 @@ export default class Inscription extends Component {
   render() {
     return (
       <Fragment>
-        <div className="cardLog">
-          <form onSubmit={this.onSubmit}>
-            <Row>
-              <Col>
-                <h3>Inscription</h3>
-
-                <label htmlFor="username">Nom d'utilisateur</label>
-                <input type="text" placeholder="John" id="username" name="username" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} />
-
-                <label htmlFor="password">Mot de passe</label>
-                <input type="password" placeholder="••••••••" id="password" name="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} />
-
-                <button type="submit">S'inscrire</button>
-              </Col>
-            </Row>
-          </form>
+        <div className="loginPage">
+          <div class="left-content">
+            <h3>🇮🇹 Inscription</h3>
+            <form onSubmit={this.onSubmit}>
+              <label htmlFor="username">Nom d'utilisateur</label>
+              <br />
+              <input
+                type="text"
+                placeholder="John"
+                id="username"
+                name="username"
+                value={this.state.username}
+                onChange={(e) => this.setState({ username: e.target.value })}
+              />
+              <br />
+              <label htmlFor="password" style={{ paddingTop: "2em" }}>
+                Mot de passe
+              </label>
+              <br />
+              <input
+                type="password"
+                placeholder="••••••••"
+                id="password"
+                name="password"
+                value={this.state.password}
+                onChange={(e) => this.setState({ password: e.target.value })}
+              />
+              <br />
+              <button type="submit">S'inscrire</button>
+            </form>
+          </div>
+          <div
+            class="right-content"
+            style={{
+              backgroundImage: `url(/assets/inscription-banner.jpeg)`,
+              backgroundSize: "cover",
+            }}
+          />
         </div>
       </Fragment>
     );

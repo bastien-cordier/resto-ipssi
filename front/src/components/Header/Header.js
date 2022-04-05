@@ -25,7 +25,7 @@ export default class Header extends Component {
     return (
       <Navbar collapseOnSelect expand="lg" sticky="top" variant="light">
         <Navbar.Brand href="/" className="logo-navbar">
-          <img src="/assets/logo.png" alt="logo" style={{ height: "80px" }} />
+          <img src="/assets/logo.png" alt="logo" style={{ height: "140px" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
