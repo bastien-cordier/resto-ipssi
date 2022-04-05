@@ -10,8 +10,8 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 import Commander from "./pages/Commander";
-import Inscription from "./pages/Inscription";
-import Connexion from "./pages/Connexion";
+import Inscription from "./pages/login/Inscription";
+import Connexion from "./pages/login/Connexion";
 
 function App() {
   return (

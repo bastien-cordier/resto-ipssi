@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Row, Col } from "react-bootstrap";
 import axios from "axios";
-import { ApiRequests, Token, ErrorInfosMessage } from "api/BaseApi";
+import { ApiRequests, ErrorInfosMessage } from "api/BaseApi";
 import Swal from "sweetalert2";
 import "./Log.scss";
 
@@ -10,12 +10,6 @@ export default class Connexion extends Component {
     email: "",
     password: "",
   };
-
-  componentDidMount() {
-    if (Token) {
-      window.location.href = "/";
-    }
-  }
 
   onSubmit = (event) => {
     event.preventDefault();
