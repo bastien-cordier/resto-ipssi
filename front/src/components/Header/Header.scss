@@ -3,23 +3,27 @@
   height: 110px;
   transition: 0.4s;
 
-  .logo-navbar,
-  .logo-commander {
+  .logo-navbar {
     margin-inline-start: 1em;
-    img {
-      transition: 0.4s;
-    }
-    img:hover {
+    transition: 0.4s;
+
+    &:hover {
       transform: scale(1.05);
     }
   }
 
-  .logo-commander, .logo-connexion{
+  .logo-connexion,
+  .logo-commander {
     margin-right: 2em;
+    transition: 0.4s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .me-auto.navbar-nav {
-    margin-left: 3em;
+    margin-left: 1.5em;
   }
 
   a.nav-link {

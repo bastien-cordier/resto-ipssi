@@ -13,7 +13,10 @@ const Home = () => {
       <div className="homepage">
         <div className="homepage-content">
           <Container>
-            <h1>Hello</h1>
+            <h1>Bienvenue chez Pizza de la mama de Napolita 🇮🇹</h1>
+            <a href="/commander">
+              <button className="btn-commande">Commander</button>
+            </a>
           </Container>
         </div>
       </div>
