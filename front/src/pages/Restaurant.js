@@ -12,10 +12,10 @@ function Restaurant() {
             <Col sm={6}>
               <h1>NOTRE RESTAURANT</h1>
               <p>
-                <span style={{ fontSize: "18px" }}>🧑🏼‍🍳</span> Au coeur du 3ème arrondissement de
-                Paris, Pizza de la mama de napolita vous offre une expérience culinaire comme nulle
-                part ailleurs. Vous y retrouverez une cuisine de qualité rassemblant toutes les
-                saveurs délicieuses de l'Italie.
+                <span style={{ fontSize: "18px" }}>🧑🏼‍🍳</span> Situé au coeur du 3ème arrondissement
+                de Paris, Pizza de la mama de napolita vous offre une expérience culinaire comme
+                nulle part ailleurs. Vous y retrouverez une cuisine de qualité rassemblant toutes
+                les saveurs délicieuses de l'Italie.
               </p>
               <p>
                 <span style={{ fontSize: "18px" }}>🍕</span> Réalisées par nos chefs avec amour et
@@ -27,12 +27,42 @@ function Restaurant() {
                 l'expérience sur place ou à emporter. A bientôt chez Pizza de la mama de Napolita
               </p>
             </Col>
-            <Col sm={1}></Col>
+            <Col sm={1} />
             <Col sm={5}>
-              <img src="assets/about.jpeg" alt="Notre Restaurant" />
+              <img data-aos="zoom-out-left" src="assets/about.jpeg" alt="Notre Restaurant" />
             </Col>
           </Row>
         </Container>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-5">
+              <img
+                data-aos="zoom-out-right"
+                src="assets/histoire.jpeg"
+                alt="Notre Histoire"
+                style={{ width: "100%", height: "300px", marginTop: "6em" }}
+              />
+            </div>
+            <Col sm={1}></Col>
+            <Col sm={6}>
+              <h1>NOTRE HISTOIRE</h1>
+              <p>
+                <span style={{ fontSize: "18px" }}>🇮🇹</span> Créé par le grand Giuseppe
+                Gorgonzola-Ferrari, <strong>Pizza de la mama de Napolita</strong> est la première
+                pizzeria a avoir ses portes au coeur de Paris en 1912. Ce lieu chargé d'histoire a
+                vu passé les plus grands Hommes de ce monde comme Carlos, Materrazzi, Patrick
+                Sébastien et Jean-Marie Bigard.
+              </p>
+              <p>
+                <span style={{ fontSize: "18px" }}>🤌🏼</span> Giuseppe est une légende de la Pizza et
+                reste à ce jour le plus jeune vainqueur du prix du meilleur Pizzaiolo de
+                Meurthe-et-Moselle à l'âge de 21 ans. Il est également connu pour son coup de boule
+                sur Jean-Eudes Etchebest (grand père de Phillipe Etchebest) après que celui-ci ai
+                voulu mettre des ananas sur sa pizza lors du festival de la Saucisse à Tourcoing.
+              </p>
+            </Col>
+          </div>
+        </div>
       </div>
     </Fragment>
   );
