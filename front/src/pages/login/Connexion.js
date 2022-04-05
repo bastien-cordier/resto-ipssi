@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { ApiRequests, ErrorInfosMessage } from "api/BaseApi";
 import Swal from "sweetalert2";

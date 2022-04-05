@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import { Token } from "api/BaseApi";
 import "./Header.scss";
 
 export default class Header extends Component {
@@ -20,6 +21,13 @@ export default class Header extends Component {
         "navbar navbar-expand-lg navbar-light sticky-top ";
     }
   };
+
+  logout() {
+    if (Token) {
+      localStorage.removeItem("token");
+      window.location.href = "/";
+    }
+  }
 
   render() {
     return (
