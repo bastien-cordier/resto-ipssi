@@ -3,21 +3,17 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Plat extends DefaultEntity{
-
-    // php@8.1
-    // private readonly int $id;
-
-    // php@8.0
+final class Plat extends DefaultEntity implements \JsonSerializable
+{
     private int $id;
 
-    private string $name;
+    private ?string $name;
 
-    private string $description;
+    private ?string $description;
 
-    private float $price;
+    private ?float $price;
 
-    public function __invoke()
+    public function jsonSerialize()
     {
         return [
             'id' => $this->id,
@@ -40,9 +36,9 @@ final class Plat extends DefaultEntity{
     /**
      * Get the value of name
      *
-     * @return string
+     * @return ?string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -50,11 +46,11 @@ final class Plat extends DefaultEntity{
     /**
      * Set the value of name
      *
-     * @param string $name
+     * @param ?string $name
      *
      * @return self
      */
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -62,34 +58,38 @@ final class Plat extends DefaultEntity{
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param ?string $description
      */
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**
-     * @return float
+     * @return ?float
      */
-    public function getPrice(): float
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
     /**
-     * @param float $price
+     * @param ?float $price
      */
-    public function setPrice(float $price): void
+    public function setPrice(?float $price): self
     {
         $this->price = $price;
+
+        return $this;
     }
 }

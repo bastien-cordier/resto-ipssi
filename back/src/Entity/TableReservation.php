@@ -3,25 +3,21 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class TableReservation extends DefaultEntity{
-
-    // php@8.1
-    // private readonly int $id;
-
-    // php@8.0
+final class TableReservation extends DefaultEntity implements \JsonSerializable
+{
     private int $id;
 
-    private int $id_table;
+    private ?int $id_table;
 
-    private int $id_reservation;
+    private ?int $id_reservation;
 
     private \DateTime $startDate;
 
     private \DateTime $endDate;
 
-    private int $nbPoeple;
+    private ?int $nbPoeple;
 
-    public function __invoke()
+    public function jsonSerialize()
     {
         return [
             'id' => $this->id,
@@ -43,35 +39,39 @@ final class TableReservation extends DefaultEntity{
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getIdTable(): int
+    public function getIdTable(): ?int
     {
         return $this->id_table;
     }
 
     /**
-     * @param int $id_table
+     * @param ?int $id_table
      */
-    public function setIdTable(int $id_table): void
+    public function setIdTable(?int $id_table): self
     {
         $this->id_table = $id_table;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getIdReservation(): int
+    public function getIdReservation(): ?int
     {
         return $this->id_reservation;
     }
 
     /**
-     * @param int $id_reservation
+     * @param ?int $id_reservation
      */
-    public function setIdReservation(int $id_reservation): void
+    public function setIdReservation(?int $id_reservation): self
     {
         $this->id_reservation = $id_reservation;
+
+        return $this;
     }
 
     /**
@@ -85,9 +85,11 @@ final class TableReservation extends DefaultEntity{
     /**
      * @param \DateTime $startDate
      */
-    public function setStartDate(\DateTime $startDate): void
+    public function setStartDate(\DateTime $startDate): self
     {
         $this->startDate = $startDate;
+
+        return $this;
     }
 
     /**
@@ -101,24 +103,28 @@ final class TableReservation extends DefaultEntity{
     /**
      * @param \DateTime $endDate
      */
-    public function setEndDate(\DateTime $endDate): void
+    public function setEndDate(\DateTime $endDate): self
     {
         $this->endDate = $endDate;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getNbPoeple(): int
+    public function getNbPoeple(): ?int
     {
         return $this->nbPoeple;
     }
 
     /**
-     * @param int $nbPoeple
+     * @param ?int $nbPoeple
      */
-    public function setNbPoeple(int $nbPoeple): void
+    public function setNbPoeple(?int $nbPoeple): self
     {
         $this->nbPoeple = $nbPoeple;
+
+        return $this;
     }
 }

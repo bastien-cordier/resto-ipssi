@@ -12,6 +12,9 @@ CREATE TABLE `user`(
     `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+  (1, 'test', 'secret');
+
 CREATE TABLE `plat` (
   `id` int(11) NOT NULL,
   `name` varchar(120) NOT NULL,

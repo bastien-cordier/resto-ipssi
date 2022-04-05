@@ -3,15 +3,15 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Boisson extends DefaultEntity
+final class Boisson extends DefaultEntity implements \JsonSerializable
 {
     private int $id;
 
-    private string $name;
+    private ?string $name;
 
-    private float $price;
+    private ?float $price;
 
-    public function __invoke()
+    public function jsonSerialize()
     {
         return [
             'id' => $this->id,
@@ -33,9 +33,9 @@ final class Boisson extends DefaultEntity
     /**
      * Get the value of name
      *
-     * @return string
+     * @return ?string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -43,11 +43,11 @@ final class Boisson extends DefaultEntity
     /**
      * Set the value of name
      *
-     * @param string $name
+     * @param ?string $name
      *
      * @return self
      */
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -56,18 +56,22 @@ final class Boisson extends DefaultEntity
 
 
     /**
-     * @return float
+     * @return ?float
      */
-    public function getPrice(): float
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
     /**
-     * @param float $price
+     * @param ?float $price
+     *
+     * @return self
      */
-    public function setPrice(float $price): void
+    public function setPrice(?float $price): self
     {
         $this->price = $price;
+
+        return $this;
     }
 }

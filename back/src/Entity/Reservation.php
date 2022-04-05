@@ -3,7 +3,8 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Reservation extends DefaultEntity{
+final class Reservation extends DefaultEntity implements \JsonSerializable
+{
 
     // php@8.1
     // private readonly int $id;
@@ -11,11 +12,11 @@ final class Reservation extends DefaultEntity{
     // php@8.0
     private int $id;
 
-    private string $email;
+    private ?string $email;
 
-    private float $price;
+    private ?float $price;
 
-    public function __invoke()
+    public function jsonSerialize()
     {
         return [
             'id' => $this->id,
@@ -35,33 +36,33 @@ final class Reservation extends DefaultEntity{
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
     /**
-     * @param string $email
+     * @param ?string $email
      */
-    public function setEmail(string $email): void
+    public function setEmail(?string $email): void
     {
         $this->email = $email;
     }
 
     /**
-     * @return float
+     * @return ?float
      */
-    public function getPrice(): float
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
     /**
-     * @param float $price
+     * @param ?float $price
      */
-    public function setPrice(float $price): void
+    public function setPrice(?float $price): void
     {
         $this->price = $price;
     }

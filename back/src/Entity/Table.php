@@ -3,17 +3,13 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class Table extends DefaultEntity{
-
-    // php@8.1
-    // private readonly int $id;
-
-    // php@8.0
+final class Table extends DefaultEntity implements \JsonSerializable
+{
     private int $id;
 
-    private int $slot;
+    private ?int $slot;
 
-    public function __invoke()
+    public function jsonSerialize()
     {
         return [
             'id' => $this->id,
@@ -32,17 +28,17 @@ final class Table extends DefaultEntity{
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getSlot(): int
+    public function getSlot(): ?int
     {
         return $this->slot;
     }
 
     /**
-     * @param int $slot
+     * @param ?int $slot
      */
-    public function setSlot(int $slot): void
+    public function setSlot(?int $slot): void
     {
         $this->slot = $slot;
     }

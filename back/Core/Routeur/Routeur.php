@@ -2,6 +2,7 @@
 namespace Core\Routeur;
 
 use Core\Trait\JsonTrait;
+use Core\Security\Security;
 
 final class Routeur {
 
@@ -19,28 +20,117 @@ final class Routeur {
             $controllerName = "App\Controller\\". ucfirst($path[3]). "Controller";
 
             $controller = new $controllerName();
-
-            if (!isset($path[4])) {
-                $controller->index(null);
-                return ;
+            if($controllerName === "App\Controller\AuthenticationController"){
+                self::authentication($controller);
+                return;
             }
 
-            if (is_numeric($path[4])) {
-                $controller->single($path[4]);
-                return ;
-            }
+            switch ($_SERVER['REQUEST_METHOD']) {
+                case 'GET':
+                    self::onGet($controller, $path);
+                    break;
 
-            if (method_exists($controller, $path[4])) {
-                $controller->$path[4](null);
-                return ;
-            }
+                case 'POST':
+                    self::onPost($controller, $path);
+                    break;
 
-            throw new \Exception("Méthode inexistante", 404);
+                case 'PUT':
+                    self::onPut($controller, $path);
+                    break;
+
+                case 'DELETE':
+                    self::onDelete($controller, $path);
+                    break;
+                default:
+                    throw new \Exception("Request non autorisée", 403);
+                    break;
+            }
 
         } catch (\Exception $e) {
-            self::jsonResponse(["description" => $e->getMessage()], $e->getCode());
+            self::jsonResponse(["description" => $e->getMessage()], 400);
         } catch (\Error $e) {
             self::jsonResponse(["description" => $e->getMessage()], 404);
+        }
+    }
+
+    private static function authentication($controller){
+
+        $data = file_get_contents('php://input');
+        if (empty($data)) {
+            throw new \Exception("Method not found", 404);
+        }
+        if (!isset($data['username']) || !isset($data['password'])) {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $controller->authentication($data);
+            return ;
+        }
+        $controller->authentication();
+    }
+
+    private static function onPost($controller, $path)
+    {
+        if (empty(file_get_contents('php://input'))) {
+            throw new \Exception("Method not found", 404);
+        }
+
+        if (!isset($path[4])) {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $controller->save($data);
+            return ;
+        }
+
+        if (!method_exists($controller, $path[4])) {
+            throw new \Exception("Méthode inexistante en POST", 404);
+        }
+
+        $method = $path[4];
+        $controller->$method();
+    }
+
+    private static function onPut($controller, $path)
+    {
+        if(!isset($path[4])){
+            throw new \Exception("Method not found", 404);
+        }
+
+        if (is_numeric($path[4])) {
+            parse_str(file_get_contents("php://input"), $_PUT);
+            $controller->update($path[4], $_PUT);
+            return ;
+        }
+        if (method_exists($controller, $path[4])) {
+            $method = $path[4];
+            $controller->$method();
+            return ;
+        }
+        throw new \Exception("Méthode inexistante en PUT", 404);
+    }
+
+    private static function onGet($controller, $path)
+    {
+        if(!isset($path[4])){
+            $controller->index();
+            return ;
+        }
+
+        if (is_numeric($path[4])) {
+            $controller->single($path[4]);
+            return ;
+        }
+
+        if (method_exists($controller, $path[4])) {
+            $method = $path[4];
+            $controller->$method();
+            return ;
+        }
+
+        throw new \Exception("Méthode inexistante en GET", 404);
+    }
+
+    private static function onDelete($controller, $path)
+    {
+        if (isset($path[4]) && is_numeric($path[4])) {
+            $controller->delete($path[4]);
         }
     }
 }

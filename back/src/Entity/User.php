@@ -3,15 +3,15 @@ namespace App\Entity;
 
 use Core\Entity\DefaultEntity;
 
-final class User extends DefaultEntity
+final class User extends DefaultEntity implements \JsonSerializable
 {
     private int $id;
 
-    private string $username;
+    private ?string $username;
 
-    private string $password;
+    private ?string $password;
 
-    public function __invoke()
+    public function jsonSerialize()
     {
         return [
             'id' => $this->id,
@@ -31,35 +31,39 @@ final class User extends DefaultEntity
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
 
     /**
-     * @param string $username
+     * @param ?string $username
      */
-    public function setUsername(string $username): void
+    public function setUsername(?string $username): self
     {
         $this->username = $username;
+
+        return $this;
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
     /**
-     * @param string $password
+     * @param ?string $password
      */
-    public function setPassword(string $password): void
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
+
+        return $this;
     }
 
 }

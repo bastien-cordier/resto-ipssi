@@ -1,7 +1,8 @@
 <?php
 namespace Core\Entity;
 
-class DefaultEntity {
+class DefaultEntity
+{
 
     // Déclenche l'hydration à l'instanciation d'une entité
     public function __construct(array $data = [])
