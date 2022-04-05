@@ -40,6 +40,13 @@ export default class Header extends Component {
             style={{ height: "80px" }}
           />
         </a>
+        <a href="/connexion" className="logo-connexion">
+          <img
+            src="/assets/connexion.png"
+            alt="logo"
+            style={{ height: "80px" }}
+          />
+        </a>
       </Navbar>
     );
   }
