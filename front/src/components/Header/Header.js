@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import "./Navbar.scss";
+import "./Header.scss";
 
 export default class Header extends Component {
   componentDidMount() {
