@@ -33,13 +33,13 @@ export default class Header extends Component {
             <Nav.Link href="/notre-restaurant">Notre Restaurant</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <Nav href="/" className="logo-commander">
+        <a href="/commander" className="logo-commander">
           <img
             src="/assets/commander.png"
             alt="logo"
             style={{ height: "80px" }}
           />
-        </Nav>
+        </a>
       </Navbar>
     );
   }
