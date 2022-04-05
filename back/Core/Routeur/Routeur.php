@@ -16,8 +16,9 @@ final class Routeur {
             if(!isset($path[3])){
                 throw new \Exception("Aucune class", 400);
             }
-
-            $controllerName = "App\Controller\\". ucfirst($path[3]). "Controller";
+            $name = str_replace( " ", "", ucwords(str_replace('_', ' ', $path[3])));
+            var_dump($name);
+            $controllerName = "App\Controller\\".$name. "Controller";
 
             $controller = new $controllerName();
             if($controllerName === "App\Controller\AuthenticationController"){
