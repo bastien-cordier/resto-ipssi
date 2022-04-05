@@ -1,28 +1,21 @@
 <?php
 namespace App\Controller;
 
-use App\Model\UserModel;
+use App\Model\TableReservationModel;
 use Core\Controller\DefaultController;
 
-final class CategorieController extends DefaultController{
+final class TableReservationController extends DefaultController{
 
     private $model;
 
     public function __construct()
     {
-        $this->model = new UserModel;
+        $this->model = new TableReservationModel;
     }
 
     public function index ()
     {
         $categories = $this->model->findAll();
-        // $arrayCategorie = array();
-        // foreach ($categories as $categorie) {
-        //     $arrayCategorie[] = [
-        //         'id' => $categorie->getId(),
-        //         "name" => $categorie->getName()
-        //     ];
-        // }
         $this->jsonResponse($categories, 200);
     }
 
