@@ -18,9 +18,9 @@ export default class Connexion extends Component {
       Swal.fire("", "Veuillez renseigner tous les champs", "error");
     } else {
       axios
-        .post(ApiRequests.fetchToken, this.state)
-        .then((fetchToken) => {
-          localStorage.setItem("user_id", fetchToken.data.user.id);
+        .post(ApiRequests.fetchAuthentications, this.state)
+        .then((fetchAuthentications) => {
+          localStorage.setItem("token", fetchAuthentications.data.token);
 
           Swal.fire("", "Connexion réussie", "success").then(() => {
             window.location.href = "/";

@@ -1,15 +1,22 @@
 const baseURL = "http://localhost:8000";
 
+const Token = localStorage.getItem("token");
+
 const ErrorTokenMessage = "Votre session à peut être expiré, <br/> Je vous invite à vous déconnecter et à vous reconnecter";
 
 const ErrorInfosMessage = "Les informations qui ont été saisies sont incorrectes";
 
-const ErrorUnauthorizedMessage = "Vous session a expiré, <br/> Nous allons vous déconnecter"
+const ErrorUnauthorizedMessage = "Vous session a expiré, <br/> Nous allons vous déconnecter";
+
+const Header = {
+  'Authorization': `Bearer ${Token}`
+};
 
 const ApiRequests = {
   fetchUsers: `${baseURL}/user`,
+  fetchAuthentications: `${baseURL}/authentication`,
   fetchPlats: `${baseURL}/plat`,
   fetchBoissons: `${baseURL}/boisson`,
 };
 
-export { ApiRequests, ErrorTokenMessage, ErrorInfosMessage, ErrorUnauthorizedMessage };
+export { ApiRequests, Token, Header, ErrorTokenMessage, ErrorInfosMessage, ErrorUnauthorizedMessage };
