@@ -7,8 +7,9 @@ const ErrorInfosMessage = "Les informations qui ont été saisies sont incorrect
 const ErrorUnauthorizedMessage = "Vous session a expiré, <br/> Nous allons vous déconnecter"
 
 const ApiRequests = {
-  fetchPlat: `${baseURL}/plat`,
-  fetchBoisson: `${baseURL}/boisson`,
+  fetchUsers: `${baseURL}/user`,
+  fetchPlats: `${baseURL}/plat`,
+  fetchBoissons: `${baseURL}/boisson`,
 };
 
 export { ApiRequests, ErrorTokenMessage, ErrorInfosMessage, ErrorUnauthorizedMessage };
