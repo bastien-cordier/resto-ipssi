@@ -6,7 +6,7 @@ import { ApiRequests, Header, Token, ErrorTokenMessage, ErrorInfosMessage  } fro
 import Swal from "sweetalert2";
 import "../Backoffice.scss";
 
-export class BoEditBoisson extends Component {
+export default class BoEditBoisson extends Component {
   state = {
     name: "",
     price: "",

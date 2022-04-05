@@ -17,7 +17,7 @@ import Backoffice from "./pages/admin/Backoffice";
 
 import BoCreateBoisson from "./pages/admin/boisson/BoCreateBoisson";
 import BoGetBoissons from "./pages/admin/boisson/BoGetBoissons";
-import { BoEditBoisson } from "./pages/admin/boisson/BoEditBoisson";
+import BoEditBoisson from "./pages/admin/boisson/BoEditBoisson";
 
 import BoCreatePlat from "./pages/admin/plat/BoCreatePlat";
 import BoGetPlats from "./pages/admin/plat/BoGetPlats";
