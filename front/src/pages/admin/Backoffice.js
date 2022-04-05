@@ -13,7 +13,7 @@ export default class Backoffice extends Component {
   render() {
     return (
       <Fragment>
-        <Container id="backoffice" className="spaces-footer">
+        <Container id="backoffice">
           <h2 className="title-page text-center">BackOffice</h2>
           <div className="text-center">
             <Row>

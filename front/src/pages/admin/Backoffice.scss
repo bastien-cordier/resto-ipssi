@@ -29,6 +29,23 @@
     display: flex;
     justify-content: flex-start;
   }
+
+  h2 {
+    margin-bottom: 5rem;
+  }
+}
+
+.spaces-footer {
+  height: calc(100vh - 174px);
+  padding-top: 100px;
+
+  h2 {
+    margin-bottom: 5rem;
+  }
+}
+
+.spaces-card {
+  height: calc(100vh - 174px);
 }
 
 .btn-back-menu {

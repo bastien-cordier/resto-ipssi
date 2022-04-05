@@ -15,6 +15,18 @@ import Connexion from "./pages/login/Connexion";
 
 import Backoffice from "./pages/admin/Backoffice";
 
+import BoCreateBoisson from "./pages/admin/boisson/BoCreateBoisson";
+import BoGetBoissons from "./pages/admin/boisson/BoGetBoissons";
+import { BoEditBoisson } from "./pages/admin/boisson/BoEditBoisson";
+
+import BoCreatePlat from "./pages/admin/plat/BoCreatePlat";
+import BoGetPlats from "./pages/admin/plat/BoGetPlats";
+import BoEditPlat from "./pages/admin/plat/BoEditPlat";
+
+import BoCreateTable from "./pages/admin/table/BoCreateTable";
+import BoGetTables from "./pages/admin/table/BoGetTables";
+import BoEditTable from "./pages/admin/table/BoEditTable";
+
 function App() {
   return (
     <Fragment>
@@ -30,6 +42,18 @@ function App() {
           <Route path="/connexion" element={<Connexion/>} />
 
           <Route path="/backoffice" element={<Backoffice/>} />
+
+          <Route path="/backoffice/boisson-create" element={<BoCreateBoisson/>} />
+          <Route path="/backoffice/boissons-list" element={<BoGetBoissons/>} />
+          <Route exact path="/backoffice/boisson-edit/:id" element={<BoEditBoisson/>} />
+
+          <Route path="/backoffice/plat-create" element={<BoCreatePlat/>} />
+          <Route path="/backoffice/plats-list" element={<BoGetPlats/>} />
+          <Route path="/backoffice/plat-edit/:id" element={<BoEditPlat/>} />
+
+          <Route path="/backoffice/table-create" element={<BoCreateTable/>} />
+          <Route path="/backoffice/tables-list" element={<BoGetTables/>} />
+          <Route path="/backoffice/table-edit/:id" element={<BoEditTable/>} />      
         </Routes>
         <Footer />
       </BrowserRouter>

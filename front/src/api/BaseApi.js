@@ -9,7 +9,7 @@ const ErrorInfosMessage = "Les informations qui ont été saisies sont incorrect
 const ErrorUnauthorizedMessage = "Vous session a expiré, <br/> Nous allons vous déconnecter";
 
 const Header = {
-  'Authorization': `Bearer ${Token}`
+  'Authorization': Token
 };
 
 const ApiRequests = {
