@@ -21,10 +21,11 @@ final class BoissonController extends DefaultController{
 
     public function single (int $id)
     {
-        $categorie = $this->model->find($id);
+        $boisson = $this->model->find($id);
         $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+            'id' => $boisson->getId(),
+            'name' => $boisson->getName(),
+            'price' => $boisson->getPrice()
         ];
         $this->jsonResponse($cat, 200);
 
@@ -33,10 +34,11 @@ final class BoissonController extends DefaultController{
     public function save ()
     {
         $lastId = $this->model->save($_POST);
-        $categorie = $this->model->find($lastId);
+        $boisson = $this->model->find($lastId);
         $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+            'id' => $boisson->getId(),
+            'name' => $boisson->getName(),
+            'price' => $boisson->getPrice()
         ];
         $this->jsonResponse($cat, 201);
 

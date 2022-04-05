@@ -19,6 +19,8 @@ final class Reservation extends DefaultEntity{
     {
         return [
             'id' => $this->id,
+            'email' => $this->email,
+            'price' => $this->price
         ];
     }
 

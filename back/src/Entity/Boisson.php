@@ -15,7 +15,8 @@ final class Boisson extends DefaultEntity
     {
         return [
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'price' => $this->price
         ];
     }
 

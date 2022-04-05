@@ -19,6 +19,8 @@ final class PlatReservation extends DefaultEntity{
     {
         return [
             'id' => $this->id,
+            'id_table' => $this->id_table,
+            'id_reservation' => $this->id_reservation
         ];
     }
 

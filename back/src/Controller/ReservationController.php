@@ -15,30 +15,31 @@ final class ReservationController extends DefaultController{
 
     public function index ()
     {
-        $categories = $this->model->findAll();
-        $this->jsonResponse($categories, 200);
+        $reservations = $this->model->findAll();
+        $this->jsonResponse($reservations, 200);
     }
 
     public function single (int $id)
     {
-        $categorie = $this->model->find($id);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $reservation = $this->model->find($id);
+        $data = [
+            'id' => $reservation->getId(),
+            'email' => $reservation->getEmail(),
+            'price' => $reservation->getPrice()
         ];
-        $this->jsonResponse($cat, 200);
+        $this->jsonResponse($data, 200);
 
     }
 
     public function save ()
     {
         $lastId = $this->model->save($_POST);
-        $categorie = $this->model->find($lastId);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $reservation = $this->model->find($lastId);
+        $data = [
+            'id' => $reservation->getId(),
+            'name' => $reservation->getName()
         ];
-        $this->jsonResponse($cat, 201);
+        $this->jsonResponse($data, 201);
 
 
     }

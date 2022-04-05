@@ -25,6 +25,10 @@ final class TableReservation extends DefaultEntity{
     {
         return [
             'id' => $this->id,
+            'id_table' => $this->id_table,
+            'id_reservation' => $this->id_reservation,
+            'startDate' => $this->startDate,
+            'endDate' => $this->endDate
         ];
     }
 

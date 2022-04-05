@@ -15,7 +15,8 @@ final class User extends DefaultEntity
     {
         return [
             'id' => $this->id,
-            'name' => $this->name
+            'username' => $this->username,
+            'password' => $this->password
         ];
     }
 

@@ -15,16 +15,17 @@ final class PlatReservationController extends DefaultController{
 
     public function index ()
     {
-        $categories = $this->model->findAll();
-        $this->jsonResponse($categories, 200);
+        $platReservations = $this->model->findAll();
+        $this->jsonResponse($platReservations, 200);
     }
 
     public function single (int $id)
     {
-        $categorie = $this->model->find($id);
+        $platReservation = $this->model->find($id);
         $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+            'id' => $platReservation->getId(),
+            'id_table' => $platReservation->getIdTable(),
+            'id_reservation' => $platReservation->getIdReservation()
         ];
         $this->jsonResponse($cat, 200);
 
@@ -33,12 +34,13 @@ final class PlatReservationController extends DefaultController{
     public function save ()
     {
         $lastId = $this->model->save($_POST);
-        $categorie = $this->model->find($lastId);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $platReservation = $this->model->find($lastId);
+        $data = [
+            'id' => $platReservation->getId(),
+            'id_table' => $platReservation->getIdTable(),
+            'id_reservation' => $platReservation->getIdReservation()
         ];
-        $this->jsonResponse($cat, 201);
+        $this->jsonResponse($data, 201);
 
 
     }

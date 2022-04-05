@@ -15,30 +15,36 @@ final class TableReservationController extends DefaultController{
 
     public function index ()
     {
-        $categories = $this->model->findAll();
-        $this->jsonResponse($categories, 200);
+        $tableReservations = $this->model->findAll();
+        $this->jsonResponse($tableReservations, 200);
     }
 
     public function single (int $id)
     {
-        $categorie = $this->model->find($id);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $tableReservation = $this->model->find($id);
+        $data = [
+            'id' => $tableReservation->getId(),
+            'id_table' => $tableReservation->getIdTable(),
+            'id_reservation' => $tableReservation->getIdReservation(),
+            'startDate' => $tableReservation->getStartDate(),
+            'endDate' => $tableReservation->getEndDate()
         ];
-        $this->jsonResponse($cat, 200);
+        $this->jsonResponse($data, 200);
 
     }
 
     public function save ()
     {
         $lastId = $this->model->save($_POST);
-        $categorie = $this->model->find($lastId);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $tableReservation = $this->model->find($lastId);
+        $data = [
+            'id' => $tableReservation->getId(),
+            'id_table' => $tableReservation->getIdTable(),
+            'id_reservation' => $tableReservation->getIdReservation(),
+            'startDate' => $tableReservation->getStartDate(),
+            'endDate' => $tableReservation->getEndDate()
         ];
-        $this->jsonResponse($cat, 201);
+        $this->jsonResponse($data, 201);
 
 
     }

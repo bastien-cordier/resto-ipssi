@@ -15,30 +15,30 @@ final class TableController extends DefaultController{
 
     public function index ()
     {
-        $categories = $this->model->findAll();
-        $this->jsonResponse($categories, 200);
+        $tables = $this->model->findAll();
+        $this->jsonResponse($tables, 200);
     }
 
     public function single (int $id)
     {
-        $categorie = $this->model->find($id);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $table = $this->model->find($id);
+        $data = [
+            'id' => $table->getId(),
+            'slot' => $table->getSlot()
         ];
-        $this->jsonResponse($cat, 200);
+        $this->jsonResponse($data, 200);
 
     }
 
     public function save ()
     {
         $lastId = $this->model->save($_POST);
-        $categorie = $this->model->find($lastId);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $table = $this->model->find($lastId);
+        $data = [
+            'id' => $table->getId(),
+            'slot' => $table->getSlot()
         ];
-        $this->jsonResponse($cat, 201);
+        $this->jsonResponse($data, 201);
 
 
     }

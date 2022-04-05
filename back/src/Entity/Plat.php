@@ -21,7 +21,9 @@ final class Plat extends DefaultEntity{
     {
         return [
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'description' => $this->description,
+            'price' => $this->price
         ];
     }
 

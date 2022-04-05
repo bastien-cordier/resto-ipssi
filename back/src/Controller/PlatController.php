@@ -15,30 +15,34 @@ final class PlatController extends DefaultController{
 
     public function index ()
     {
-        $categories = $this->model->findAll();
-        $this->jsonResponse($categories, 200);
+        $plats = $this->model->findAll();
+        $this->jsonResponse($plats, 200);
     }
 
     public function single (int $id)
     {
-        $categorie = $this->model->find($id);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $plat = $this->model->find($id);
+        $data = [
+            'id' => $plat->getId(),
+            'name' => $plat->getName(),
+            'description' => $plat->getDescription(),
+            'price' => $plat->getPrice()
         ];
-        $this->jsonResponse($cat, 200);
+        $this->jsonResponse($data, 200);
 
     }
 
     public function save ()
     {
         $lastId = $this->model->save($_POST);
-        $categorie = $this->model->find($lastId);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $plat = $this->model->find($lastId);
+        $data = [
+            'id' => $plat->getId(),
+            'name' => $plat->getName(),
+            'description' => $plat->getDescription(),
+            'price' => $plat->getPrice()
         ];
-        $this->jsonResponse($cat, 201);
+        $this->jsonResponse($data, 201);
 
 
     }

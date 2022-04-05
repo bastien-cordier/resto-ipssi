@@ -15,30 +15,32 @@ final class BoissonReservationController extends DefaultController{
 
     public function index ()
     {
-        $categories = $this->model->findAll();
-        $this->jsonResponse($categories, 200);
+        $boissonReservations = $this->model->findAll();
+        $this->jsonResponse($boissonReservations, 200);
     }
 
     public function single (int $id)
     {
-        $categorie = $this->model->find($id);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $boissonReservation = $this->model->find($id);
+        $data = [
+            'id' => $boissonReservation->getId(),
+            'id_boisson' => $boissonReservation->getIdBoisson(),
+            'id_reservation' => $boissonReservation->getIdReservation()
         ];
-        $this->jsonResponse($cat, 200);
+        $this->jsonResponse($data, 200);
 
     }
 
     public function save ()
     {
         $lastId = $this->model->save($_POST);
-        $categorie = $this->model->find($lastId);
-        $cat = [
-            'id' => $categorie->getId(),
-            'name' => $categorie->getName()
+        $boissonReservation = $this->model->find($lastId);
+        $data = [
+            'id' => $boissonReservation->getId(),
+            'id_boisson' => $boissonReservation->getName(),
+            'id_reservation' => $boissonReservation->getIdReservation()
         ];
-        $this->jsonResponse($cat, 201);
+        $this->jsonResponse($data, 201);
 
 
     }

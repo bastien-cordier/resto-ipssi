@@ -17,6 +17,7 @@ final class Table extends DefaultEntity{
     {
         return [
             'id' => $this->id,
+            'slot' => $this->slot
         ];
     }
 

@@ -15,6 +15,8 @@ final class BoissonReservation extends DefaultEntity{
     {
         return [
             'id' => $this->id,
+            'id_boisson' => $this->id_boisson,
+            'id_reservation' => $this->id_reservation
         ];
     }
 
