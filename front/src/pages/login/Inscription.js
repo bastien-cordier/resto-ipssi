@@ -22,7 +22,7 @@ export default class Inscription extends Component {
         .then(() => {
           Swal.fire("", "Inscription réussi", "success").then(() => {
             window.location.href = "/";
-          });           
+          });
         })
         .catch((error) => {
           console.error(error.message);
@@ -38,14 +38,26 @@ export default class Inscription extends Component {
           <form onSubmit={this.onSubmit}>
             <Row>
               <Col>
+                Hi
                 <h3>Inscription</h3>
-
                 <label htmlFor="username">Nom d'utilisateur</label>
-                <input type="text" placeholder="John" id="username" name="username" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} />
-
+                <input
+                  type="text"
+                  placeholder="John"
+                  id="username"
+                  name="username"
+                  value={this.state.username}
+                  onChange={(e) => this.setState({ username: e.target.value })}
+                />
                 <label htmlFor="password">Mot de passe</label>
-                <input type="password" placeholder="••••••••" id="password" name="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} />
-
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  id="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={(e) => this.setState({ password: e.target.value })}
+                />
                 <button type="submit">S'inscrire</button>
               </Col>
             </Row>
