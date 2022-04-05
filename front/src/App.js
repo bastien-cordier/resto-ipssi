@@ -13,6 +13,8 @@ import Commander from "./pages/Commander";
 import Inscription from "./pages/login/Inscription";
 import Connexion from "./pages/login/Connexion";
 
+import Backoffice from "./pages/admin/Backoffice";
+
 function App() {
   return (
     <Fragment>
@@ -20,10 +22,14 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/notre-restaurant" element={<Restaurant/>} />
           <Route path="/commander" element={<Commander/>} />
+
           <Route path="/inscription" element={<Inscription/>} />
           <Route path="/connexion" element={<Connexion/>} />
+
+          <Route path="/backoffice" element={<Backoffice/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
