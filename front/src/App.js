@@ -10,6 +10,8 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 import Commander from "./pages/Commander";
+import Inscription from "./pages/Inscription";
+import Connexion from "./pages/Connexion";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/notre-restaurant" element={<Restaurant/>} />
           <Route path="/commander" element={<Commander/>} />
+          <Route path="/inscription" element={<Inscription/>} />
+          <Route path="/connexion" element={<Connexion/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
