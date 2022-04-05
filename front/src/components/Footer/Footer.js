@@ -7,9 +7,7 @@ export default class Footer extends Component {
       <Fragment>
         <footer className="footer-container sticky-bottom" id="footer">
           <nav className="footer">
-            <div className="container-fluid" id="social">
-              <p>Pizza de la mama de Napolita - Paris. {new Date().getFullYear()} - Tous droits réservés</p>
-            </div>
+            <p>Pizza de la mama de Napolita - Paris. {new Date().getFullYear()} - Tous droits réservés</p>
           </nav>
         </footer>
       </Fragment>
