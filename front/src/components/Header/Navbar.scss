@@ -3,7 +3,8 @@
   height: 110px;
   transition: 0.4s;
 
-  .logo-navbar {
+  .logo-navbar,
+  .logo-commander {
     margin-inline-start: 1em;
     img {
       transition: 0.4s;
@@ -11,6 +12,10 @@
     img:hover {
       transform: scale(1.05);
     }
+  }
+
+  .logo-commander {
+    margin-right: 4em;
   }
 
   .me-auto.navbar-nav {
