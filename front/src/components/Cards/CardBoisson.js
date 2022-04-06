@@ -18,23 +18,21 @@ function CardBoisson(data) {
 
   return (
     <div className="cardCommander">
-      <a href="#">
-        <div className="card">
-          <img src={element.image} alt="Pizza" />
-          <div className="content">
-            <h4>{element.name}</h4>
-            <h6>Description : {description}</h6>
-            <h6>
-              Prix : <strong>{element.price} €</strong>
-            </h6>
-            <div className="buttons">
-              <button style={{ backgroundColor: "#67c23c", color: "#fff" }}>
-                <FaCartPlus />
-              </button>
-            </div>
+      <div className="card">
+        <img src={element.image} alt="Pizza" />
+        <div className="content">
+          <h4>{element.name}</h4>
+          <h6>Description : {description}</h6>
+          <h6>
+            Prix : <strong>{element.price} €</strong>
+          </h6>
+          <div className="buttons">
+            <button style={{ backgroundColor: "#67c23c", color: "#fff" }}>
+              <FaCartPlus />
+            </button>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };
