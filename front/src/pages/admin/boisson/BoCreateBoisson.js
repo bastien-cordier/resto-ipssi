@@ -39,7 +39,7 @@ export default class BoCreateBoisson extends Component {
         axios
           .post(ApiRequests.fetchBoissons, boisson, { headers: Header })
           .then(() => {
-            Swal.fire("", "Votre boisson a bien été enregistré", "success").then(() => {
+            Swal.fire("", "Votre boisson a bien été enregistrée", "success").then(() => {
               window.location.reload(false);
             });
           })
@@ -48,7 +48,7 @@ export default class BoCreateBoisson extends Component {
             Swal.fire("", ErrorInfosMessage + ".<br/>" + ErrorTokenMessage, "error");
           });
       } else if (result.isDenied) {
-        Swal.fire("", "Votre boisson n'a pas été créé", "error");
+        Swal.fire("", "Votre boisson n'a pas été créée", "error");
       }
     });
   };
@@ -60,10 +60,25 @@ export default class BoCreateBoisson extends Component {
             <h4>Création d'une boisson</h4>
 
             <label htmlFor="name">Nom de la boisson</label>
-            <input type="text" placeholder="Bouteille d'eau" id="name" name="name" onChange={(e) => this.setState({ name: e.target.value })} required />
+            <input
+              type="text"
+              placeholder="Bouteille d'eau"
+              id="name"
+              name="name"
+              onChange={(e) => this.setState({ name: e.target.value })}
+              required
+            />
 
             <label htmlFor="price">Prix de la boisson (en euros)</label>
-            <input type="number" id="price" name="price" min="1" placeholder="1 €" onChange={(e) => this.setState({ price: e.target.value })} required />
+            <input
+              type="number"
+              id="price"
+              name="price"
+              min="1"
+              placeholder="1 €"
+              onChange={(e) => this.setState({ price: e.target.value })}
+              required
+            />
             <Row>
               <Col sm={6}>
                 <button type="submit" className="add">

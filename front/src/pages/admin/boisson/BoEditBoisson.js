@@ -20,7 +20,13 @@ export default class BoEditBoisson extends Component {
       .get(`${ApiRequests.fetchBoissons}/${id}`)
       .then((fetchBoissons) => {
         const boisson = fetchBoissons.data;
-        this.setState({ boisson: boisson, name: boisson.name, price: boisson.price, id: boisson.id, hasFetchData: true });
+        this.setState({
+          boisson: boisson,
+          name: boisson.name,
+          price: boisson.price,
+          id: boisson.id,
+          hasFetchData: true,
+        });
       })
       .catch((error) => {
         console.error(error.message);
@@ -32,9 +38,13 @@ export default class BoEditBoisson extends Component {
     e.preventDefault();
 
     axios
-      .put(`${ApiRequests.fetchBoissons}/${this.state.id}`, { name: this.state.name, price: Number(this.state.price) }, { headers: Header })
+      .put(
+        `${ApiRequests.fetchBoissons}/${this.state.id}`,
+        { name: this.state.name, price: Number(this.state.price) },
+        { headers: Header }
+      )
       .then(() => {
-        Swal.fire("", "Votre boisson a bien été modifié", "success").then(() => {
+        Swal.fire("", "Votre boisson a bien été modifiée", "success").then(() => {
           window.location.reload(false);
         });
       })
@@ -67,10 +77,26 @@ export default class BoEditBoisson extends Component {
                     Modifier la boisson <b>"{this.state.boisson.name}"</b>
                   </h4>
                   <label htmlFor="name">Nom de la boisson</label>
-                  <input type="text" id="name" name="name" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} required />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={this.state.name}
+                    onChange={(e) => this.setState({ name: e.target.value })}
+                    required
+                  />
 
                   <label htmlFor="price">Prix de la boisson (en euros)</label>
-                  <input type="number" id="price" name="price" value={this.state.price} min="1" placeholder="1 €" onChange={(e) => this.setState({ price: e.target.value })} required />
+                  <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    value={this.state.price}
+                    min="1"
+                    placeholder="1 €"
+                    onChange={(e) => this.setState({ price: e.target.value })}
+                    required
+                  />
                   <Row>
                     <Col sm={6}>
                       <button type="submit" className="add">

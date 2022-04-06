@@ -44,7 +44,7 @@ export default class BoGetBoissons extends Component {
             headers: Header,
           })
           .then(() => {
-            Swal.fire("", "Votre boisson a bien été supprimé", "success").then(() => {
+            Swal.fire("", "Votre boisson a bien été supprimée", "success").then(() => {
               window.location.reload(false);
             });
           })
@@ -53,7 +53,7 @@ export default class BoGetBoissons extends Component {
             Swal.fire("", ErrorTokenMessage, "error");
           });
       } else if (result.isDenied) {
-        Swal.fire("", "Votre boisson n'a pas été supprimé", "error");
+        Swal.fire("", "Votre boisson n'a pas été supprimée", "error");
       }
     });
   }
@@ -84,7 +84,10 @@ export default class BoGetBoissons extends Component {
                         <i className="fas fa-pen" />
                       </button>
                     </a>
-                    <button className="btn-delete mx-1" onClick={(e) => this.deleteBoisson(boisson.id)}>
+                    <button
+                      className="btn-delete mx-1"
+                      onClick={(e) => this.deleteBoisson(boisson.id)}
+                    >
                       <i className="fas fa-trash-alt" />
                     </button>
                   </td>

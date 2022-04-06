@@ -44,7 +44,7 @@ export default class BoGetTables extends Component {
             headers: Header,
           })
           .then(() => {
-            Swal.fire("", "Votre table a bien été supprimé", "success").then(() => {
+            Swal.fire("", "Votre table a bien été supprimée", "success").then(() => {
               window.location.reload(false);
             });
           })
@@ -53,7 +53,7 @@ export default class BoGetTables extends Component {
             Swal.fire("", ErrorTokenMessage, "error");
           });
       } else if (result.isDenied) {
-        Swal.fire("", "Votre table n'a pas été supprimé", "error");
+        Swal.fire("", "Votre table n'a pas été supprimée", "error");
       }
     });
   }
@@ -62,12 +62,14 @@ export default class BoGetTables extends Component {
     return (
       <Fragment>
         <Container className="spaces-footer" style={{ paddingTop: "50px" }}>
-          <h2 className="title-page text-center" style={{ marginBottom: "3rem" }}>Gestion des tables</h2>
+          <h2 className="title-page text-center" style={{ marginBottom: "3rem" }}>
+            Gestion des tables
+          </h2>
           <Table className="mb-5 text-center">
             <thead>
               <tr>
                 <th>#</th>
-                <th>Slot (nombre de places par table)</th>
+                <th>Nombre de places par table</th>
                 <th>Actions</th>
               </tr>
             </thead>

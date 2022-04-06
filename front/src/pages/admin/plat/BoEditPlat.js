@@ -20,7 +20,14 @@ export default class BoEditPlat extends Component {
       .get(`${ApiRequests.fetchPlats}/${id}`)
       .then((fetchPlats) => {
         const plat = fetchPlats.data;
-        this.setState({ plat: plat, name: plat.name, description: plat.description, price: plat.price, id: plat.id, hasFetchData: true });
+        this.setState({
+          plat: plat,
+          name: plat.name,
+          description: plat.description,
+          price: plat.price,
+          id: plat.id,
+          hasFetchData: true,
+        });
       })
       .catch((error) => {
         console.error(error.message);
@@ -32,9 +39,17 @@ export default class BoEditPlat extends Component {
     e.preventDefault();
 
     axios
-      .put(`${ApiRequests.fetchPlats}/${this.state.id}`, { name: this.state.name, description: this.state.description, price: Number(this.state.price) }, { headers: Header })
+      .put(
+        `${ApiRequests.fetchPlats}/${this.state.id}`,
+        {
+          name: this.state.name,
+          description: this.state.description,
+          price: Number(this.state.price),
+        },
+        { headers: Header }
+      )
       .then(() => {
-        Swal.fire("", "Votre plat a bien été modifié", "success").then(() => {
+        Swal.fire("", "Votre pizza a bien été modifié", "success").then(() => {
           window.location.reload(false);
         });
       })
@@ -64,20 +79,42 @@ export default class BoEditPlat extends Component {
               <div className="cardBackoffice spaces-card">
                 <form onSubmit={this.updatePlatHandler}>
                   <h4>
-                    Modifier le plat <b>"{this.state.plat.name}"</b>
+                    Modifier la pizza <b>"{this.state.plat.name}"</b>
                   </h4>
-                  <label htmlFor="name">Nom du plat</label>
-                  <input type="text" id="name" name="name" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} required />
+                  <label htmlFor="name">Nom de la pizza</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={this.state.name}
+                    onChange={(e) => this.setState({ name: e.target.value })}
+                    required
+                  />
 
-                  <label htmlFor="description">Description du plat</label>
-                  <textarea id="description" name="description" value={this.state.description} onChange={(e) => this.setState({ description: e.target.value })} required />
+                  <label htmlFor="description">Description de la pizza</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    value={this.state.description}
+                    onChange={(e) => this.setState({ description: e.target.value })}
+                    required
+                  />
 
-                  <label htmlFor="price">Prix du plat (en euros)</label>
-                  <input type="number" id="price" name="price" value={this.state.price} min="1" placeholder="1 €" onChange={(e) => this.setState({ price: e.target.value })} required />
+                  <label htmlFor="price">Prix de la pizza (en euros)</label>
+                  <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    value={this.state.price}
+                    min="1"
+                    placeholder="1 €"
+                    onChange={(e) => this.setState({ price: e.target.value })}
+                    required
+                  />
                   <Row>
                     <Col sm={6}>
                       <button type="submit" className="add">
-                        Éditer ce plat
+                        Éditer cette pizza
                       </button>
                     </Col>
                     <Col sm={6}>

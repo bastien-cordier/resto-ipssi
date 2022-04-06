@@ -37,7 +37,7 @@ export default class BoCreateTable extends Component {
         axios
           .post(ApiRequests.fetchTables, table, { headers: Header })
           .then(() => {
-            Swal.fire("", "Votre table a bien été enregistré", "success").then(() => {
+            Swal.fire("", "Votre table a bien été enregistrée", "success").then(() => {
               window.location.reload(false);
             });
           })
@@ -46,7 +46,7 @@ export default class BoCreateTable extends Component {
             Swal.fire("", ErrorInfosMessage + ".<br/>" + ErrorTokenMessage, "error");
           });
       } else if (result.isDenied) {
-        Swal.fire("", "Votre table n'a pas été créé", "error");
+        Swal.fire("", "Votre table n'a pas été créée", "error");
       }
     });
   };
@@ -57,8 +57,16 @@ export default class BoCreateTable extends Component {
           <form onSubmit={this.handleSubmit}>
             <h4>Création d'une table</h4>
 
-            <label htmlFor="slot">Slot de la table (nombre de places par table)</label>
-            <input type="number" id="slot" name="slot" min="1" placeholder="2" onChange={(e) => this.setState({ slot: e.target.value })} required />
+            <label htmlFor="slot">Nombre de places de la table</label>
+            <input
+              type="number"
+              id="slot"
+              name="slot"
+              min="1"
+              placeholder="2"
+              onChange={(e) => this.setState({ slot: e.target.value })}
+              required
+            />
             <Row>
               <Col sm={6}>
                 <button type="submit" className="add">

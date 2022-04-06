@@ -30,7 +30,7 @@ export default class BoGetPlats extends Component {
   deletePlat(id) {
     Swal.fire({
       title: "Supprimer",
-      text: "Êtes-vous sûr de vouloir supprimer ce plat ?",
+      text: "Êtes-vous sûr de vouloir supprimer cette pizza ?",
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonColor: "#DC143C",
@@ -44,7 +44,7 @@ export default class BoGetPlats extends Component {
             headers: Header,
           })
           .then(() => {
-            Swal.fire("", "Votre plat a bien été supprimé", "success").then(() => {
+            Swal.fire("", "Votre pizza a bien été supprimée", "success").then(() => {
               window.location.reload(false);
             });
           })
@@ -53,7 +53,7 @@ export default class BoGetPlats extends Component {
             Swal.fire("", ErrorTokenMessage, "error");
           });
       } else if (result.isDenied) {
-        Swal.fire("", "Votre plat n'a pas été supprimé", "error");
+        Swal.fire("", "Votre pizza n'a pas été supprimée", "error");
       }
     });
   }
@@ -62,7 +62,7 @@ export default class BoGetPlats extends Component {
     return (
       <Fragment>
         <Container className="spaces-footer">
-          <h2 className="title-page text-center">Gestion des plats</h2>
+          <h2 className="title-page text-center">Gestion des pizzas</h2>
           <Table className="mb-5">
             <thead>
               <tr>

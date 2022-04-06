@@ -31,9 +31,13 @@ export default class BoEditTable extends Component {
     e.preventDefault();
 
     axios
-      .put(`${ApiRequests.fetchTables}/${this.state.id}`, { slot: Number(this.state.slot) }, { headers: Header })
+      .put(
+        `${ApiRequests.fetchTables}/${this.state.id}`,
+        { slot: Number(this.state.slot) },
+        { headers: Header }
+      )
       .then(() => {
-        Swal.fire("", "Votre table a bien été modifié", "success").then(() => {
+        Swal.fire("", "Votre table a bien été modifiée", "success").then(() => {
           window.location.reload(false);
         });
       })
@@ -65,8 +69,17 @@ export default class BoEditTable extends Component {
                   <h4>
                     Modifier la table <b>"{this.state.table.id}"</b>
                   </h4>
-                  <label htmlFor="slot">Slot de la table (nombre de places par table)</label>
-                  <input type="number" id="slot" name="slot" value={this.state.slot} min="1" placeholder="2" onChange={(e) => this.setState({ slot: e.target.value })} required />
+                  <label htmlFor="slot">Nombre de places de la table</label>
+                  <input
+                    type="number"
+                    id="slot"
+                    name="slot"
+                    value={this.state.slot}
+                    min="1"
+                    placeholder="2"
+                    onChange={(e) => this.setState({ slot: e.target.value })}
+                    required
+                  />
                   <Row>
                     <Col sm={6}>
                       <button type="submit" className="add">
