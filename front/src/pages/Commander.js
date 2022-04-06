@@ -7,12 +7,13 @@ const Commander = () => {
   return (
     <div>
       <img
-          src="/assets/banner-commande.png"
-          alt="banner"
-          className="img-bandeau"
-        />
-      <Container className="test"><h3>🇮🇹 Commandez votre pizza</h3></Container>
-
+        src="/assets/banner-commande.png"
+        alt="banner"
+        className="img-bandeau"
+      />
+      <Container className="test">
+        <h3>🇮🇹 Commandez votre pizza</h3>
+      </Container>
       <Container className="pizzas">
         <Card />
         <Card />
