@@ -15,6 +15,7 @@ const Header = {
 const ApiRequests = {
   fetchUsers: `${baseURL}/user`,
   fetchAuthentications: `${baseURL}/authentication`,
+  fetchReservations: `${baseURL}/reservation`,
   fetchPlats: `${baseURL}/plat`,
   fetchBoissons: `${baseURL}/boisson`,
   fetchTables: `${baseURL}/table`,
