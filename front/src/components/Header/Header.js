@@ -33,7 +33,7 @@ export default class Header extends Component {
     const renderAuthHeader = () => {
       if (Token) {
         return (
-          <div>
+          <div style={{ display: "inherit" }}>
             <a href="/backoffice" className="logo-inscription">
               <img
                 src="/assets/back-office.png"
@@ -52,7 +52,7 @@ export default class Header extends Component {
         );
       } else {
         return (
-          <div>
+          <div style={{ display: "inherit" }}>
             <a href="/inscription" className="logo-inscription">
               <img
                 src="/assets/inscription.png"

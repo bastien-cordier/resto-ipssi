@@ -67,7 +67,7 @@ export default class BoGetTables extends Component {
             <thead>
               <tr>
                 <th>#</th>
-                <th>Slot</th>
+                <th>Slot (nombre de places par table)</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -75,7 +75,7 @@ export default class BoGetTables extends Component {
               <tbody key={table.id.toString()}>
                 <tr>
                   <td>{table.id}</td>
-                  <td>{table.slot} €</td>
+                  <td>{table.slot} places</td>
                   <td>
                     <a href={`/backoffice/table-edit/${table.id}`}>
                       <button className="btn-edit mx-1">
