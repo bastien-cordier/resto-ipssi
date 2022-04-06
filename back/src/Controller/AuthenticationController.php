@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Model\UserModel;
 use Core\Security\Security;
 use App\Repository\UserRepository;
 use Core\Trait\JsonTrait;
