@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
-import { ApiRequests, Header, ErrorTokenMessage } from "api/BaseApi";
+import { ApiRequests, Header, ErrorTokenMessage, ErrorInfosMessage } from "api/BaseApi";
 import Swal from "sweetalert2";
 import "./FinishReserv.scss";
 
@@ -55,40 +55,55 @@ export default class FinishReserv extends Component {
       lastName: this.state.lastName,
       email: this.state.email,
       tel: this.state.tel,
-      boisson: [boisson],
-      plat: [plat],
-      table: [table],
+      boissons: [boisson],
+      plats: [plat],
+      tables: [table],
       startDate: currentDate, 
       endDate: new Date(currentDate.setHours(currentDate.getHours() + 1)),
       nbPoeple: this.table.slot,
     };
-    
-    axios
-      .post(ApiRequests.fetchReservations, reservation, { headers: Header })
-      .then(() => {
-        localStorage.removeItem("plat");
-        localStorage.removeItem("boisson");
-        localStorage.removeItem("table");
 
-        Swal.fire("", "Votre réservation a bien été enregistrée", "success").then(() => {
-          window.location.href = "/";
-        });
-      })
-      .catch((error) => {
-        console.error(error.message);
-        Swal.fire("", ErrorTokenMessage, "error");
-      });
+    Swal.fire({
+      title: "Validation de la réservation",
+      text: "Êtes-vous sûr de vouloir valider cette réservation ?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonColor: "#7db769",
+      denyButtonColor: "#DC143C",
+      confirmButtonText: "Créer",
+      denyButtonText: "Ne pas créer",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .post(ApiRequests.fetchReservations, reservation, { headers: Header })
+          .then(() => {
+            localStorage.removeItem("plat");
+            localStorage.removeItem("boisson");
+            localStorage.removeItem("table");
+
+            Swal.fire("", "Votre réservation a bien été enregistrée", "success").then(() => {
+              window.location.href = "/";
+            });
+          })
+          .catch((error) => {
+            console.error(error.message);
+            Swal.fire("", ErrorInfosMessage + ".<br/>" + ErrorTokenMessage, "error");
+          });
+      } else if (result.isDenied) {
+        Swal.fire("", "Votre réservation n'a pas été enregistrée", "error");
+      }
+    });
   }
 
   render() {
     return (
-      <div>
+      <div className="finishReserv">
         {!this.state.hasFetchData ? (
           <div>Chargement…</div>
         ) : (
           <div>
             <Container className="reserb">
-              <h3>🛒 Finaliser votre réservation</h3>
+              <h3 className="mb-5 text-center">🛒 Finaliser votre réservation</h3>
 
               <form onSubmit={this.handleSubmit}>
                 <Row>
@@ -131,7 +146,7 @@ export default class FinishReserv extends Component {
                     <label htmlFor="tel">Téléphone</label>
                     <input
                       type="text"
-                      placeholder="0633551788"
+                      placeholder="06 33 55 17 88"
                       id="tel"
                       name="tel"
                       onChange={(e) => this.setState({ tel: e.target.value })}
@@ -139,9 +154,7 @@ export default class FinishReserv extends Component {
                     />
                   </Col>
                 </Row>
-                <button type="submit">
-                  Valider
-                </button>
+                <button type="submit">Valider</button>
               </form>
             </Container>
           </div>
