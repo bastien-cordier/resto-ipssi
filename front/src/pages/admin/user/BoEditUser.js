@@ -31,11 +31,6 @@ export default class BoEditUser extends Component {
   updateUserHandler = (e) => {
     e.preventDefault();
 
-    /* const newHeader = {
-      Authorization: Token,
-      "content-type": "application/merge-patch+json",
-    }; */
-
     axios
       .put(`${ApiRequests.fetchUsers}/${this.state.id}`, { username: this.state.username, password: this.state.password }, { headers: Header })
       .then(() => {

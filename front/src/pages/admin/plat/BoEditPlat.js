@@ -31,11 +31,6 @@ export default class BoEditPlat extends Component {
   updatePlatHandler = (e) => {
     e.preventDefault();
 
-    /* const newHeader = {
-      Authorization: Token,
-      "content-type": "application/merge-patch+json",
-    }; */
-
     axios
       .put(`${ApiRequests.fetchPlats}/${this.state.id}`, { name: this.state.name, description: this.state.description, price: Number(this.state.price) }, { headers: Header })
       .then(() => {

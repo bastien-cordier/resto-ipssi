@@ -31,11 +31,6 @@ export default class BoEditBoisson extends Component {
   updateBoissonHandler = (e) => {
     e.preventDefault();
 
-    /* const newHeader = {
-      Authorization: Token,
-      "content-type": "application/merge-patch+json",
-    }; */
-
     axios
       .put(`${ApiRequests.fetchBoissons}/${this.state.id}`, { name: this.state.name, price: Number(this.state.price) }, { headers: Header })
       .then(() => {
