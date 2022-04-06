@@ -1,7 +1,9 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import "./App.scss";
 
 import Header from "./components/Header/Header";
@@ -32,12 +34,15 @@ import BoGetUsers from "./pages/admin/user/BoGetUsers";
 import BoEditUser from "./pages/admin/user/BoEditUser";
 
 function App() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <Fragment>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
 
           <Route path="/notre-restaurant" element={<Restaurant/>} />
           <Route path="/commander" element={<Commander/>} />

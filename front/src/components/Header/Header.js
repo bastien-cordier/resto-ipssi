@@ -73,7 +73,12 @@ export default class Header extends Component {
     };
 
     return (
-      <Navbar collapseOnSelect expand="lg" sticky="top" variant="light">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        sticky="top"
+        variant="light"
+      >
         <Navbar.Brand href="/" className="logo-navbar">
           <img src="/assets/logo.png" alt="logo" style={{ height: "140px" }} />
         </Navbar.Brand>
@@ -81,6 +86,9 @@ export default class Header extends Component {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/notre-restaurant">Notre Restaurant</Nav.Link>
+            <Nav.Link href="/commander" style={{ marginLeft: "2em" }}>
+              Commander
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <a href="/commander" className="logo-commander">
