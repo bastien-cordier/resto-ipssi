@@ -3,7 +3,8 @@ import { Container } from "react-bootstrap";
 import axios from "axios";
 import { ApiRequests, ErrorTokenMessage } from "api/BaseApi";
 import Swal from "sweetalert2";
-import Card from "components/Cards/Card";
+import CardPlat from "components/Cards/CardPlat";
+import CardBoisson from "components/Cards/CardBoisson";
 import "./Commander.scss";
 
 export default class Commander extends Component {
@@ -44,7 +45,7 @@ export default class Commander extends Component {
         </Container>
         <Container className="pizzas">
           {this.state.plats.map((plat) => (
-            <Card key={plat.id.toString()} data={plat}/>
+            <CardPlat key={plat.id.toString()} data={plat}/>
           ))}
         </Container>
         <Container className="test">
@@ -52,7 +53,7 @@ export default class Commander extends Component {
         </Container>
         <Container className="boisson">
           {this.state.boissons.map((boisson) => (
-            <Card key={boisson.id.toString()} data={boisson}/>
+            <CardBoisson key={boisson.id.toString()} data={boisson}/>
           ))}
         </Container>
       </div>

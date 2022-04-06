@@ -1,15 +1,27 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
-import Card from "components/Cards/Card";
+import axios from "axios";
+import { ApiRequests, ErrorTokenMessage } from "api/BaseApi";
+import Swal from "sweetalert2";
+import CardTable from "components/Cards/CardTable";
 import "./Reserv.scss";
 
 export default class Reserv extends Component {
   state = {
-    orders: [],
+    tables: [],
   };
 
   componentDidMount() {
-    console.log(localStorage.getItem("panier"));
+    axios
+      .get(ApiRequests.fetchTables)
+      .then((fetchTables) => {
+        const tables = fetchTables.data;
+        this.setState({ tables });      
+      })
+      .catch((error) => {
+        console.error(error.message);
+        Swal.fire("", ErrorTokenMessage, "error");
+      });
   }
 
   render() {
@@ -25,8 +37,8 @@ export default class Reserv extends Component {
           <h3>🍽 Reservez votre table</h3>
         </Container>
         <Container className="pizzas">
-          {this.state.orders.map((order) => (
-            <Card key={order.id.toString()} data={order}/>
+          {this.state.tables.map((table) => (
+            <CardTable key={table.id.toString()} data={table}/>
           ))}
         </Container>
       </div>

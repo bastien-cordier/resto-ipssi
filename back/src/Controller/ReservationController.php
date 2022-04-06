@@ -60,7 +60,9 @@ final class ReservationController extends DefaultController
             return ;
         }
 
+
         $this->checkContent($data);
+
         $array = [
             'email' => $data['email'],
             'firstName' => $data['firstName'],
@@ -74,7 +76,7 @@ final class ReservationController extends DefaultController
 
         $this->saveDataReservation('boisson', $data["boissons"], $lastId);
         $this->saveDataReservation('plat', $data["plats"], $lastId);
-        $this->saveDataReservation('table', $data, $lastId);
+        $this->saveDataReservation('table', $data["tables"], $lastId);
 
         $entity = $this->ReservationJsonEncode($this->model->findOneBy(['id' => $lastId]));
 
