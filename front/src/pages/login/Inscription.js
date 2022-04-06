@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import { ApiRequests, Token, Header, ErrorInfosMessage } from "api/BaseApi";
+import { ApiRequests,, Header, ErrorInfosMessage } from "api/BaseApi";
 import Swal from "sweetalert2";
 import "./Log.scss";
 
@@ -9,12 +9,6 @@ export default class Inscription extends Component {
     username: "",
     password: "",
   };
-
-  componentDidMount() {
-    if (!Token) {
-      window.location.href = "/connexion";
-    }
-  }
 
   onSubmit = (event) => {
     event.preventDefault();
