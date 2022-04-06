@@ -12,6 +12,6 @@ use Core\Model\DefaultModel;
  */
 class TableModel extends DefaultModel {
 
-    protected string $table = 'table';
+    protected string $table = 'restaurant_table';
     protected string $entity = 'Table';
 }

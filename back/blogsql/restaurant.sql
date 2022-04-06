@@ -40,12 +40,12 @@ INSERT INTO `boisson` (`id`, `name`, `price`) VALUES
   (2, 'Boisson n°2', 4),
   (3, 'Boisson n°3', 7);
 
-CREATE TABLE `table` (
+CREATE TABLE `restaurant_table` (
     `id` int NOT NULL,
     `slot` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `table` (`id`, `slot`) VALUES
+INSERT INTO `restaurant_table` (`id`, `slot`) VALUES
   (1, 2),
   (2, 2),
   (3, 4),
@@ -89,7 +89,7 @@ ALTER TABLE `boisson`
 ALTER TABLE `plat`
     ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `table`
+ALTER TABLE `restaurant_table`
     ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `reservation`
@@ -119,7 +119,7 @@ ALTER TABLE `plat`
 ALTER TABLE `boisson`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `table`
+ALTER TABLE `restaurant_table`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `reservation`
@@ -143,5 +143,5 @@ ALTER TABLE `boisson_reservation`
     ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`) ON DELETE CASCADE ;
 
 ALTER TABLE `table_reservation`
-    ADD CONSTRAINT `table_ibfk_1` FOREIGN KEY (`idTable`) REFERENCES `table` (`id`),
+    ADD CONSTRAINT `table_ibfk_1` FOREIGN KEY (`idTable`) REFERENCES `restaurant_table` (`id`),
     ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`) ON DELETE CASCADE ;
