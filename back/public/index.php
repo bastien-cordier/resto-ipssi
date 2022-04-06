@@ -14,7 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Headers: Authorization, Content-Type, token');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
+header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT');
+header("Access-Control-Allow-Headers: X-Requested-With");
 
 
 define("ROOT", dirname(__DIR__));
