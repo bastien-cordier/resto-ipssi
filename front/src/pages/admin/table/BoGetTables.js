@@ -61,10 +61,8 @@ export default class BoGetTables extends Component {
   render() {
     return (
       <Fragment>
-        <Container style={{ paddingTop: "50px" }}>
-          <h2 className="title-page text-center" style={{ marginBottom: "3rem" }}>
-            Gestion des tables
-          </h2>
+        <Container className="backoffice">
+          <h2 className=" text-center">Gestion des tables</h2>
           <Table className="mb-5 text-center">
             <thead>
               <tr>

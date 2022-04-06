@@ -16,7 +16,7 @@ export default class Backoffice extends Component {
   render() {
     return (
       <Fragment>
-        <Container id="backoffice">
+        <Container className="backoffice">
           <h2>🛠 BackOffice</h2>
           <div className="text-center">
             <Row>

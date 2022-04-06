@@ -61,8 +61,8 @@ export default class BoGetUsers extends Component {
   render() {
     return (
       <Fragment>
-        <Container>
-          <h2 className="title-page text-center">Gestion des utilisateurs</h2>
+        <Container className="backoffice">
+          <h2 className=" text-center">Gestion des utilisateurs</h2>
           <Table className="mb-5">
             <thead>
               <tr>
