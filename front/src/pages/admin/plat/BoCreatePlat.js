@@ -98,7 +98,7 @@ export default class BoCreatePlat extends Component {
               required
             />
 
-            <label htmlFor="price">Image de la pizza (en euros)</label>
+            <label htmlFor="price">Image de la pizza</label>
             <input
               type="text"
               id="image"
