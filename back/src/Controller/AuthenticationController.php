@@ -27,7 +27,7 @@ class AuthenticationController
             $this->jsonResponse(["token" => Security::createToken($user), "id" => $user->getId()], 200);
             return ;
         }
-        
+
         $this->jsonResponse(["message" => "Bad credential"], 401);
     }
 }
