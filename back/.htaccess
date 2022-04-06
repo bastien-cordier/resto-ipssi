@@ -3,3 +3,7 @@ RewriteEngine on
 RewriteRule ^/?([a-z]+)/([a-z]+)$ /api/public/?controller=$1&method=$2 [L]
 RewriteRule ^/?([a-z]+)/([0-9]*)$ /api/public/?controller=$1&id=$2 [L]
 RewriteRule ^/?([a-z]+)$ /api/public/?controller=$1 [L]
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin *
+</IfModule>
