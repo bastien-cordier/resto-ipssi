@@ -11,8 +11,12 @@ import Footer from "./components/Footer/Footer";
 
 import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
+
 import Commander from "./pages/Commander";
 import Reserv from "./pages/Reserv";
+import Panier from "./pages/Panier";
+import FinishReserv from "./pages/FinishReserv";
+
 import Inscription from "./pages/login/Inscription";
 import Connexion from "./pages/login/Connexion";
 
@@ -33,7 +37,6 @@ import BoEditTable from "./pages/admin/table/BoEditTable";
 import BoCreateUser from "./pages/admin/user/BoCreateUser";
 import BoGetUsers from "./pages/admin/user/BoGetUsers";
 import BoEditUser from "./pages/admin/user/BoEditUser";
-import Panier from "pages/Panier";
 
 function App() {
   useEffect(() => {
@@ -47,10 +50,12 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/notre-restaurant" element={<Restaurant />} />
+
           <Route path="/commander" element={<Commander />} />
           <Route path="/reservation" element={<Reserv />} />
-
           <Route path="/panier" element={<Panier />} />
+          <Route path="/finish-reservation" element={<FinishReserv />} />
+
           <Route path="/inscription" element={<Inscription />} />
           <Route path="/connexion" element={<Connexion />} />
 
