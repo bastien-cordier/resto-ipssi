@@ -27,6 +27,10 @@ import BoCreateTable from "./pages/admin/table/BoCreateTable";
 import BoGetTables from "./pages/admin/table/BoGetTables";
 import BoEditTable from "./pages/admin/table/BoEditTable";
 
+import BoCreateUser from "./pages/admin/user/BoCreateUser";
+import BoGetUsers from "./pages/admin/user/BoGetUsers";
+import BoEditUser from "./pages/admin/user/BoEditUser";
+
 function App() {
   return (
     <Fragment>
@@ -53,7 +57,11 @@ function App() {
 
           <Route path="/backoffice/table-create" element={<BoCreateTable/>} />
           <Route path="/backoffice/tables-list" element={<BoGetTables/>} />
-          <Route path="/backoffice/table-edit/:id" element={<BoEditTable/>} />      
+          <Route path="/backoffice/table-edit/:id" element={<BoEditTable/>} />
+
+          <Route path="/backoffice/user-create" element={<BoCreateUser/>} />
+          <Route path="/backoffice/users-list" element={<BoGetUsers/>} />
+          <Route path="/backoffice/user-edit/:id" element={<BoEditUser/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -17,6 +17,7 @@ const ApiRequests = {
   fetchAuthentications: `${baseURL}/authentication`,
   fetchPlats: `${baseURL}/plat`,
   fetchBoissons: `${baseURL}/boisson`,
+  fetchTables: `${baseURL}/table`,
 };
 
 export { ApiRequests, Token, Header, ErrorTokenMessage, ErrorInfosMessage, ErrorUnauthorizedMessage };

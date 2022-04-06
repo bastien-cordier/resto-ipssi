@@ -73,12 +73,24 @@ export default class Backoffice extends Component {
               </Col>
             </Row>
             <br />
-            <a href="/backoffice/users-list">
-              <button>
-                <i className="fas fa-user-circle icons" />
-                <span>Gestion des utilisateurs</span>
-              </button>
-            </a>
+            <Row>
+              <Col sm={6}>
+                <a href="/backoffice/user-create">
+                  <button>
+                    <i className="fas fa-plus-circle icons" />
+                    <span>Création d'un utilisateur</span>
+                  </button>
+                </a>
+              </Col>
+              <Col sm={6}>
+                <a href="/backoffice/users-list">
+                  <button>
+                    <i className="fas fa-user-circle icons" />
+                    <span>Gestion des utilisateurs</span>
+                  </button>
+                </a>
+              </Col>
+            </Row>
           </div>
         </Container>
       </Fragment>

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { ApiRequests, Header, Token, ErrorTokenMessage, ErrorInfosMessage  } from "api/BaseApi";
+import { ApiRequests, Header, Token, ErrorTokenMessage, ErrorInfosMessage } from "api/BaseApi";
 import Swal from "sweetalert2";
 import "../Backoffice.scss";
 

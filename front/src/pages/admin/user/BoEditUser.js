@@ -6,21 +6,21 @@ import { ApiRequests, Header, Token, ErrorTokenMessage, ErrorInfosMessage } from
 import Swal from "sweetalert2";
 import "../Backoffice.scss";
 
-export default class BoEditPlat extends Component {
+export default class BoEditUser extends Component {
   state = {
-    name: "",
-    price: "",
-    plat: [],
+    username: "",
+    password: "",
+    user: [],
     id: "",
     hasFetchData: false,
   };
 
-  getPlatById(id) {
+  getUserById(id) {
     axios
-      .get(`${ApiRequests.fetchPlats}/${id}`)
-      .then((fetchPlats) => {
-        const plat = fetchPlats.data;
-        this.setState({ plat: plat, name: plat.name, description: plat.description, price: plat.price, id: plat.id, hasFetchData: true });
+      .get(`${ApiRequests.fetchUsers}/${id}`, { headers: Header })
+      .then((fetchUsers) => {
+        const user = fetchUsers.data;
+        this.setState({ user: user, username: user.username, password: user.password, id: user.id, hasFetchData: true });
       })
       .catch((error) => {
         console.error(error.message);
@@ -28,7 +28,7 @@ export default class BoEditPlat extends Component {
       });
   }
 
-  updatePlatHandler = (e) => {
+  updateUserHandler = (e) => {
     e.preventDefault();
 
     /* const newHeader = {
@@ -37,9 +37,9 @@ export default class BoEditPlat extends Component {
     }; */
 
     axios
-      .put(`${ApiRequests.fetchPlats}/${this.state.id}`, { name: this.state.name, description: this.state.description, price: Number(this.state.price) }, { headers: Header })
+      .put(`${ApiRequests.fetchUsers}/${this.state.id}`, { username: this.state.username, password: this.state.password }, { headers: Header })
       .then(() => {
-        Swal.fire("", "Votre plat a bien été modifié", "success").then(() => {
+        Swal.fire("", "Votre utilisateur a bien été modifié", "success").then(() => {
           window.location.reload(false);
         });
       })
@@ -54,7 +54,7 @@ export default class BoEditPlat extends Component {
       window.location.href = "/connexion";
     } else {
       const id = Number(window.location.pathname.slice(-1));
-      this.getPlatById(id);
+      this.getUserById(id);
     }
   }
 
@@ -67,26 +67,23 @@ export default class BoEditPlat extends Component {
           ) : (
             <Fragment>
               <div className="cardBackoffice spaces-card">
-                <form onSubmit={this.updatePlatHandler}>
+                <form onSubmit={this.updateUserHandler}>
                   <h4>
-                    Modifier le plat <b>"{this.state.plat.name}"</b>
+                    Modifier l'utilisateur <b>"{this.state.user.username}"</b>
                   </h4>
-                  <label htmlFor="name">Nom du plat</label>
-                  <input type="text" id="name" name="name" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} required />
+                  <label htmlFor="username">Nom d'utilisateur</label>
+                  <input type="text" id="username" name="username" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} required />
 
-                  <label htmlFor="description">Description du plat</label>
-                  <textarea id="description" name="description" value={this.state.description} onChange={(e) => this.setState({ description: e.target.value })} required />
-
-                  <label htmlFor="price">Prix du plat (en euros)</label>
-                  <input type="number" id="price" name="price" value={this.state.price} min="1" placeholder="1 €" onChange={(e) => this.setState({ price: e.target.value })} required />
+                  <label htmlFor="password">Mot de passe</label>
+                  <input type="text" id="password" name="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} required />
                   <Row>
                     <Col sm={6}>
                       <button type="submit" className="add">
-                        Éditer ce plat
+                        Éditer cet utilisateur
                       </button>
                     </Col>
                     <Col sm={6}>
-                      <Link to={"/backoffice/plats-list"}>
+                      <Link to={"/backoffice/users-list"}>
                         <button className="backBo">Retour à la liste</button>
                       </Link>
                     </Col>

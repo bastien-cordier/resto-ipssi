@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import { ApiRequests, ErrorInfosMessage } from "api/BaseApi";
+import { ApiRequests, Token, Header, ErrorInfosMessage } from "api/BaseApi";
 import Swal from "sweetalert2";
 import "./Log.scss";
 
@@ -10,6 +10,12 @@ export default class Inscription extends Component {
     password: "",
   };
 
+  componentDidMount() {
+    if (!Token) {
+      window.location.href = "/connexion";
+    }
+  }
+
   onSubmit = (event) => {
     event.preventDefault();
 
@@ -17,7 +23,7 @@ export default class Inscription extends Component {
       Swal.fire("", "Veuillez renseigner tous les champs", "error");
     } else {
       axios
-        .post(ApiRequests.fetchUsers, this.state)
+        .post(ApiRequests.fetchUsers, this.state, { headers: Header })
         .then(() => {
           Swal.fire("", "Inscription réussi", "success").then(() => {
             window.location.href = "/";
