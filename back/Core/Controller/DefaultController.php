@@ -48,8 +48,8 @@ class DefaultController{
 
     public function single (int $id)
     {
-        $entitiy = $this->model->find($id);
-        $this->jsonResponse($entitiy, 200);
+        $entity = $this->model->find($id);
+        $this->jsonResponse($entity, 200);
     }
 
     /**
@@ -63,6 +63,7 @@ class DefaultController{
         $lastId = $this->model->save($data);
         $entity = $this->model->find($lastId);
         $this->jsonResponse($entity, 201);
+        return $entity;
     }
 
     /**

@@ -54,19 +54,22 @@ INSERT INTO `table` (`id`, `slot`) VALUES
 CREATE TABLE `reservation` (
     `id` int NOT NULL,
     `email` varchar(255) NOT NULL,
-    `status` varchar(255) NOT NULL
+    `status` varchar(255) NOT NULL,
+    `nbPoeple` int
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `plat_reservation` (
     `id` int NOT NULL,
     `idPlat` int NOT NULL,
-    `idReservation` int NOT NULL
+    `idReservation` int NOT NULL,
+    `quantity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `boisson_reservation` (
     `id` int NOT NULL,
     `idBoisson` int NOT NULL,
-    `idReservation` int NOT NULL
+    `idReservation` int NOT NULL,
+    `quantity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `table_reservation` (
@@ -74,8 +77,7 @@ CREATE TABLE `table_reservation` (
     `idTable` int NOT NULL,
     `idReservation` int NOT NULL,
     `startDate` DATETIME NOT NULL,
-    `endDate` DATETIME NOT NULL,
-    `nbPoeple` int NOT NULL
+    `endDate` DATETIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `user`
@@ -134,12 +136,12 @@ ALTER TABLE `table_reservation`
 
 ALTER TABLE `plat_reservation`
     ADD CONSTRAINT `plat_ibfk_1` FOREIGN KEY (`idPlat`) REFERENCES `plat` (`id`),
-    ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`);
+    ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`) ON DELETE CASCADE ;
 
 ALTER TABLE `boisson_reservation`
     ADD CONSTRAINT `boisson_ibfk_1` FOREIGN KEY (`idBoisson`) REFERENCES `boisson` (`id`),
-    ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`);
+    ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`) ON DELETE CASCADE ;
 
 ALTER TABLE `table_reservation`
     ADD CONSTRAINT `table_ibfk_1` FOREIGN KEY (`idTable`) REFERENCES `table` (`id`),
-    ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`);
+    ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`idReservation`) REFERENCES `reservation` (`id`) ON DELETE CASCADE ;

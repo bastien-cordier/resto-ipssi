@@ -7,16 +7,18 @@ final class PlatReservation extends DefaultEntity implements \JsonSerializable
 {
     private int $id;
 
-    private ?int $id_table;
+    private ?int $idPlat;
 
-    private ?int $id_reservation;
+    private ?int $idReservation;
+
+    private ?int $quantity;
 
     public function jsonSerialize()
     {
         return [
             'id' => $this->id,
-            'id_table' => $this->id_table,
-            'id_reservation' => $this->id_reservation
+            'idPlat' => $this->idPlat,
+            'idReservation' => $this->idReservation
         ];
     }
 
@@ -33,17 +35,17 @@ final class PlatReservation extends DefaultEntity implements \JsonSerializable
     /**
      * @return ?int
      */
-    public function getIdTable(): ?int
+    public function getIdPlat(): ?int
     {
-        return $this->id_table;
+        return $this->idPlat;
     }
 
     /**
-     * @param ?int $id_table
+     * @param ?int $idPlat
      */
-    public function setIdTable(?int $id_table): self
+    public function setIdPlat(?int $idPlat): self
     {
-        $this->id_table = $id_table;
+        $this->idPlat = $idPlat;
 
         return $this;
     }
@@ -53,16 +55,36 @@ final class PlatReservation extends DefaultEntity implements \JsonSerializable
      */
     public function getIdReservation(): ?int
     {
-        return $this->id_reservation;
+        return $this->idReservation;
     }
 
     /**
-     * @param ?int $id_reservation
+     * @param ?int $idReservation
      */
-    public function setIdReservation(?int $id_reservation): self
+    public function setIdReservation(?int $idReservation): self
     {
-        $this->id_reservation = $id_reservation;
+        $this->idReservation = $idReservation;
 
         return $this;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int|null $quantity
+     */
+    public function setQuantity(?int $quantity): self
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+
 }
