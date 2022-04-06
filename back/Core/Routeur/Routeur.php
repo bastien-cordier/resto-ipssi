@@ -94,8 +94,8 @@ final class Routeur {
         }
 
         if (is_numeric($path[4])) {
-            parse_str(file_get_contents("php://input"), $_PUT);
-            $controller->update($path[4], $_PUT);
+            $data = json_decode(file_get_contents('php://input'), true);
+            $controller->update($path[4], $data);
             return ;
         }
         if (method_exists($controller, $path[4])) {
