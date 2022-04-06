@@ -30,6 +30,48 @@ export default class Header extends Component {
   }
 
   render() {
+    const renderAuthHeader = () => {
+      if (Token) {
+        return (
+          <div>
+            <a href="/backoffice" className="logo-inscription">
+              <img
+                src="/assets/back-office.png"
+                alt="logo"
+                style={{ height: "80px" }}
+              />
+            </a>
+            <a href="" onClick={this.logout} className="logo-connexion">
+              <img
+                src="/assets/deconnexion.png"
+                alt="logo"
+                style={{ height: "80px" }}
+              />
+            </a>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <a href="/inscription" className="logo-inscription">
+              <img
+                src="/assets/inscription.png"
+                alt="logo"
+                style={{ height: "80px" }}
+              />
+            </a>
+            <a href="/connexion" className="logo-connexion">
+              <img
+                src="/assets/connexion.png"
+                alt="logo"
+                style={{ height: "80px" }}
+              />
+            </a>
+          </div>
+        );
+      }
+    };
+
     return (
       <Navbar collapseOnSelect expand="lg" sticky="top" variant="light">
         <Navbar.Brand href="/" className="logo-navbar">
@@ -48,20 +90,7 @@ export default class Header extends Component {
             style={{ height: "80px" }}
           />
         </a>
-        <a href="/inscription" className="logo-inscription">
-          <img
-            src="/assets/inscription.png"
-            alt="logo"
-            style={{ height: "80px" }}
-          />
-        </a>
-        <a href="/connexion" className="logo-connexion">
-          <img
-            src="/assets/connexion.png"
-            alt="logo"
-            style={{ height: "80px" }}
-          />
-        </a>
+        {renderAuthHeader()}
       </Navbar>
     );
   }
