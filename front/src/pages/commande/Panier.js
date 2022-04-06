@@ -31,7 +31,7 @@ export default class Panier extends Component {
     return (
       <div>
         {!this.state.hasFetchData ? (
-            <div>Chargement…</div>
+          <div>Chargement…</div>
         ) : (
           <div>
             <img
