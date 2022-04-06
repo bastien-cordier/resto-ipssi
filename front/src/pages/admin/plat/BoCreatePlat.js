@@ -57,18 +57,23 @@ export default class BoCreatePlat extends Component {
   render() {
     return (
       <Fragment>
-        <div className="cardBackoffice spaces-card">
+        <div className="cardBackoffice spaces-card" style={{ paddingTop: "25px" }}>
           <form onSubmit={this.handleSubmit}>
             <h4>Création d'un plat</h4>
 
-            <label htmlFor="name">Nom du plat</label>
-            <input type="text" placeholder="Bouteille d'eau" id="name" name="name" onChange={(e) => this.setState({ name: e.target.value })} required />
+            <Row>
+              <Col sm={6}>
+                <label htmlFor="name">Nom du plat</label>
+                <input type="text" placeholder="Bouteille d'eau" id="name" name="name" onChange={(e) => this.setState({ name: e.target.value })} required />
+              </Col>
+              <Col sm={6}>
+                <label htmlFor="price">Prix du plat (en euros)</label>
+                <input type="number" id="price" name="price" min="1" placeholder="1 €" onChange={(e) => this.setState({ price: e.target.value })} required />
+              </Col>
+            </Row>
 
             <label htmlFor="description">Description du plat</label>
             <textarea id="description" name="description" placeholder="Lorem ipsum dolor sit amet" onChange={(e) => this.setState({ description: e.target.value })} required />
-
-            <label htmlFor="price">Prix du plat (en euros)</label>
-            <input type="number" id="price" name="price" min="1" placeholder="1 €" onChange={(e) => this.setState({ price: e.target.value })} required />
             <Row>
               <Col sm={6}>
                 <button type="submit" className="add">
