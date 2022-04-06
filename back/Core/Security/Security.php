@@ -11,7 +11,7 @@ class Security
         $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
 
         $time = new \DateTime();
-        $time->add(new \DateInterval('PT1M'));
+        $time->add(new \DateInterval('PT1H'));
         $payload = json_encode(['user_id' => $user->getId(), 'end' => $time->format('Y-m-d H:i')]);
         $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
         $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
