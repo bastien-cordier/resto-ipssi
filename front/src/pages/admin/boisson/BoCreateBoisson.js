@@ -9,6 +9,7 @@ export default class BoCreateBoisson extends Component {
   state = {
     name: "",
     price: "",
+    image: "",
   };
 
   componentDidMount() {
@@ -23,6 +24,7 @@ export default class BoCreateBoisson extends Component {
     const boisson = {
       name: this.state.name,
       price: Number(this.state.price),
+      image: this.state.image,
     };
 
     Swal.fire({
@@ -68,17 +70,31 @@ export default class BoCreateBoisson extends Component {
               onChange={(e) => this.setState({ name: e.target.value })}
               required
             />
-
-            <label htmlFor="price">Prix de la boisson (en euros)</label>
-            <input
-              type="number"
-              id="price"
-              name="price"
-              min="1"
-              placeholder="1 €"
-              onChange={(e) => this.setState({ price: e.target.value })}
-              required
-            />
+            <Row>
+              <Col sm={6}>
+                <label htmlFor="price">Prix de la boisson (en euros)</label>
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  min="1"
+                  placeholder="1 €"
+                  onChange={(e) => this.setState({ price: e.target.value })}
+                  required
+                />
+              </Col>
+              <Col sm={6}>
+                <label htmlFor="price">Image de la boisson</label>
+                <input
+                  type="text"
+                  placeholder="URL de l'image"
+                  id="image"
+                  name="image"
+                  onChange={(e) => this.setState({ image: e.target.value })}
+                  required
+                />
+              </Col>
+            </Row>
             <Row>
               <Col sm={6}>
                 <button type="submit" className="add">

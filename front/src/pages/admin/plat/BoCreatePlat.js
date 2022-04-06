@@ -10,6 +10,7 @@ export default class BoCreatePlat extends Component {
     name: "",
     description: "",
     price: "",
+    image: "",
   };
 
   componentDidMount() {
@@ -25,6 +26,7 @@ export default class BoCreatePlat extends Component {
       name: this.state.name,
       description: this.state.description,
       price: Number(this.state.price),
+      image: this.state.image,
     };
 
     Swal.fire({
@@ -80,7 +82,7 @@ export default class BoCreatePlat extends Component {
                   id="price"
                   name="price"
                   min="1"
-                  placeholder="1 €"
+                  placeholder="12 €"
                   onChange={(e) => this.setState({ price: e.target.value })}
                   required
                 />
@@ -93,6 +95,16 @@ export default class BoCreatePlat extends Component {
               name="description"
               placeholder="Lorem ipsum dolor sit amet"
               onChange={(e) => this.setState({ description: e.target.value })}
+              required
+            />
+
+            <label htmlFor="price">Image de la pizza (en euros)</label>
+            <input
+              type="text"
+              id="image"
+              name="image"
+              placeholder="URL de l'image"
+              onChange={(e) => this.setState({ image: e.target.value })}
               required
             />
             <Row>

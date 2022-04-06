@@ -66,7 +66,7 @@ export default class BoGetPlats extends Component {
           <Table className="mb-5">
             <thead>
               <tr>
-                <th>#</th>
+                <th>Image</th>
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Prix</th>
@@ -76,7 +76,9 @@ export default class BoGetPlats extends Component {
             {this.state.plats.map((plat) => (
               <tbody key={plat.id.toString()}>
                 <tr>
-                  <td>{plat.id}</td>
+                  <td>
+                    <img src={plat.image} alt={plat.name} />
+                  </td>
                   <td>{plat.name}</td>
                   <td>{plat.description.substring(0, 50)}</td>
                   <td>{plat.price} €</td>

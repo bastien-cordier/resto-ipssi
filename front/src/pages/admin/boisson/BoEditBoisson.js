@@ -10,6 +10,7 @@ export default class BoEditBoisson extends Component {
   state = {
     name: "",
     price: "",
+    image: "",
     boisson: [],
     id: "",
     hasFetchData: false,
@@ -24,6 +25,7 @@ export default class BoEditBoisson extends Component {
           boisson: boisson,
           name: boisson.name,
           price: boisson.price,
+          image: boisson.image,
           id: boisson.id,
           hasFetchData: true,
         });
@@ -40,7 +42,7 @@ export default class BoEditBoisson extends Component {
     axios
       .put(
         `${ApiRequests.fetchBoissons}/${this.state.id}`,
-        { name: this.state.name, price: Number(this.state.price) },
+        { name: this.state.name, price: Number(this.state.price), image: this.state.image },
         { headers: Header }
       )
       .then(() => {
@@ -97,6 +99,17 @@ export default class BoEditBoisson extends Component {
                     onChange={(e) => this.setState({ price: e.target.value })}
                     required
                   />
+
+                  <label htmlFor="image">Image de la boisson</label>
+                  <input
+                    type="text"
+                    id="image"
+                    name="image"
+                    value={this.state.image}
+                    onChange={(e) => this.setState({ image: e.target.value })}
+                    required
+                  />
+
                   <Row>
                     <Col sm={6}>
                       <button type="submit" className="add">

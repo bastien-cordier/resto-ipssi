@@ -10,6 +10,7 @@ export default class BoEditPlat extends Component {
   state = {
     name: "",
     price: "",
+    image: "",
     plat: [],
     id: "",
     hasFetchData: false,
@@ -25,6 +26,7 @@ export default class BoEditPlat extends Component {
           name: plat.name,
           description: plat.description,
           price: plat.price,
+          image: plat.image,
           id: plat.id,
           hasFetchData: true,
         });
@@ -45,11 +47,12 @@ export default class BoEditPlat extends Component {
           name: this.state.name,
           description: this.state.description,
           price: Number(this.state.price),
+          image: this.state.image,
         },
         { headers: Header }
       )
       .then(() => {
-        Swal.fire("", "Votre pizza a bien été modifié", "success").then(() => {
+        Swal.fire("", "Votre pizza a bien été modifiée", "success").then(() => {
           window.location.reload(false);
         });
       })
@@ -111,6 +114,17 @@ export default class BoEditPlat extends Component {
                     onChange={(e) => this.setState({ price: e.target.value })}
                     required
                   />
+
+                  <label htmlFor="name">Image de la pizza</label>
+                  <input
+                    type="text"
+                    id="image"
+                    name="image"
+                    value={this.state.image}
+                    onChange={(e) => this.setState({ image: e.target.value })}
+                    required
+                  />
+
                   <Row>
                     <Col sm={6}>
                       <button type="submit" className="add">

@@ -66,7 +66,7 @@ export default class BoGetBoissons extends Component {
           <Table className="mb-5">
             <thead>
               <tr>
-                <th>#</th>
+                <th>Image</th>
                 <th>Nom</th>
                 <th>Prix</th>
                 <th>Actions</th>
@@ -75,7 +75,9 @@ export default class BoGetBoissons extends Component {
             {this.state.boissons.map((boisson) => (
               <tbody key={boisson.id.toString()}>
                 <tr>
-                  <td>{boisson.id}</td>
+                  <td>
+                    <img src={boisson.image} alt={boisson.name} />
+                  </td>
                   <td>{boisson.name}</td>
                   <td>{boisson.price} €</td>
                   <td>

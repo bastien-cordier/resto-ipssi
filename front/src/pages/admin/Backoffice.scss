@@ -227,3 +227,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     transform: scale(1.05);
   }
 }
+
+td {
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+  }
+}
