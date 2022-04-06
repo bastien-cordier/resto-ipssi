@@ -55,7 +55,40 @@ class DefaultModel extends Database{
             $statement = substr($statement, 0, -2);
         }
 
-        return $this->getData($statement, $this->entity);
+        if(!is_bool($res = $this->getData($statement, $this->entity))){
+            return $res;
+        }
+        return [];
+    }
+
+
+    /**
+     * Retourne un éléments en fonctions de critères
+     *
+     * @param array $criteria
+     * @param array $order
+     * @return array
+     */
+    public function findOneBy(array $criteria = [], array $order = []): object
+    {
+        $statement = "SELECT * FROM $this->table ";
+        if (!empty($criteria)) {
+            $statement .= "WHERE ";
+            foreach ($criteria as $key => $value) {
+                $statement .= "$key = $value AND ";
+            }
+        }
+
+        $statement = substr($statement, 0, -4);
+        if (!empty($order)) {
+            $statement .= "ORDER BY ";
+            foreach ($order as $key => $value) {
+                $statement .= "$key $value, ";
+            }
+            $statement = substr($statement, 0, -2);
+        }
+
+        return $this->getData($statement, $this->entity, true);
     }
 
     /**

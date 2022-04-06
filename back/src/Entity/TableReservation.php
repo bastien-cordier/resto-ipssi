@@ -7,22 +7,20 @@ final class TableReservation extends DefaultEntity implements \JsonSerializable
 {
     private int $id;
 
-    private ?int $id_table;
+    private ?int $idTable;
 
-    private ?int $id_reservation;
+    private ?int $idReservation;
 
-    private \DateTime $startDate;
+    private $startDate;
 
-    private \DateTime $endDate;
-
-    private ?int $nbPoeple;
+    private $endDate;
 
     public function jsonSerialize()
     {
         return [
             'id' => $this->id,
-            'id_table' => $this->id_table,
-            'id_reservation' => $this->id_reservation,
+            'idTable' => $this->idTable,
+            'idReservation' => $this->idReservation,
             'startDate' => $this->startDate,
             'endDate' => $this->endDate
         ];
@@ -43,15 +41,15 @@ final class TableReservation extends DefaultEntity implements \JsonSerializable
      */
     public function getIdTable(): ?int
     {
-        return $this->id_table;
+        return $this->idTable;
     }
 
     /**
-     * @param ?int $id_table
+     * @param ?int $idTable
      */
-    public function setIdTable(?int $id_table): self
+    public function setIdTable(?int $idTable): self
     {
-        $this->id_table = $id_table;
+        $this->idTable = $idTable;
 
         return $this;
     }
@@ -61,31 +59,31 @@ final class TableReservation extends DefaultEntity implements \JsonSerializable
      */
     public function getIdReservation(): ?int
     {
-        return $this->id_reservation;
+        return $this->idReservation;
     }
 
     /**
-     * @param ?int $id_reservation
+     * @param ?int $idReservation
      */
-    public function setIdReservation(?int $id_reservation): self
+    public function setIdReservation(?int $idReservation): self
     {
-        $this->id_reservation = $id_reservation;
+        $this->idReservation = $idReservation;
 
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): string
     {
         return $this->startDate;
     }
 
     /**
-     * @param \DateTime $startDate
+     * @param string $startDate
      */
-    public function setStartDate(\DateTime $startDate): self
+    public function setStartDate(string $startDate): self
     {
         $this->startDate = $startDate;
 
@@ -93,37 +91,19 @@ final class TableReservation extends DefaultEntity implements \JsonSerializable
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): string
     {
         return $this->endDate;
     }
 
     /**
-     * @param \DateTime $endDate
+     * @param string $endDate
      */
-    public function setEndDate(\DateTime $endDate): self
+    public function setEndDate(string $endDate): self
     {
         $this->endDate = $endDate;
-
-        return $this;
-    }
-
-    /**
-     * @return ?int
-     */
-    public function getNbPoeple(): ?int
-    {
-        return $this->nbPoeple;
-    }
-
-    /**
-     * @param ?int $nbPoeple
-     */
-    public function setNbPoeple(?int $nbPoeple): self
-    {
-        $this->nbPoeple = $nbPoeple;
 
         return $this;
     }

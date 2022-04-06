@@ -5,23 +5,30 @@ use Core\Entity\DefaultEntity;
 
 final class Reservation extends DefaultEntity implements \JsonSerializable
 {
-
-    // php@8.1
-    // private readonly int $id;
-
-    // php@8.0
     private int $id;
 
     private ?string $email;
 
-    private ?float $price;
+    private ?string $status;
+
+    private ?int $nbPoeple;
+
+    private array $boissons = [];
+
+    private array $plats = [];
+
+    private array $tables = [];
 
     public function jsonSerialize()
     {
         return [
             'id' => $this->id,
             'email' => $this->email,
-            'price' => $this->price
+            'status' => $this->status,
+            'nbPoeple' => $this->nbPoeple,
+            'plats' => $this->plats,
+            'boissons' => $this->boissons,
+            'tables' =>$this->tables
         ];
     }
 
@@ -52,18 +59,90 @@ final class Reservation extends DefaultEntity implements \JsonSerializable
     }
 
     /**
-     * @return ?float
+     * @return ?string
      */
-    public function getPrice(): ?float
+    public function getStatus(): ?string
     {
-        return $this->price;
+        return $this->status;
     }
 
     /**
-     * @param ?float $price
+     * @param ?string $email
      */
-    public function setPrice(?float $price): void
+    public function setStatus(?string $status): void
     {
-        $this->price = $price;
+        $this->status = $status;
+    }
+
+    /**
+     * @return ?int
+     */
+    public function getNbPoeple(): ?int
+    {
+        return $this->nbPoeple;
+    }
+
+    /**
+     * @param ?int $nbPoeple
+     */
+    public function setNbPoeple(?int $nbPoeple): self
+    {
+        $this->nbPoeple = $nbPoeple;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBoissons(): array
+    {
+        return $this->boissons;
+    }
+
+    /**
+     * @param array $boissons
+     */
+    public function setBoissons(array $boissons): self
+    {
+        $this->boissons = $boissons;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPlats(): array
+    {
+        return $this->plats;
+    }
+
+    /**
+     * @param array $plats
+     */
+    public function setPlats(array $plats): self
+    {
+        $this->plats = $plats;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTables(): array
+    {
+        return $this->tables;
+    }
+
+    /**
+     * @param array $tables
+     */
+    public function setTables(array $tables): self
+    {
+        $this->tables = $tables;
+
+        return $this;
     }
 }

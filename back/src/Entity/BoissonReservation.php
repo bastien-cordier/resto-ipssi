@@ -5,19 +5,20 @@ use Core\Entity\DefaultEntity;
 
 final class BoissonReservation extends DefaultEntity implements \JsonSerializable
 {
-
     private int $id;
 
-    private ?int $id_boisson;
+    private ?int $idBoisson;
 
-    private ?int $id_reservation;
+    private ?int $idReservation;
+
+    private ?int $quantity;
 
     public function jsonSerialize()
     {
         return [
             'id' => $this->id,
-            'id_boisson' => $this->id_boisson,
-            'id_reservation' => $this->id_reservation
+            'idBoisson' => $this->idBoisson,
+            'idReservation' => $this->idReservation
         ];
     }
 
@@ -36,15 +37,15 @@ final class BoissonReservation extends DefaultEntity implements \JsonSerializabl
      */
     public function getIdBoisson(): ?int
     {
-        return $this->id_boisson;
+        return $this->idBoisson;
     }
 
     /**
-     * @param ?int $id_boisson
+     * @param ?int $idBoisson
      */
-    public function setIdBoisson(?int $id_boisson): self
+    public function setIdBoisson(?int $idBoisson): self
     {
-        $this->id_boisson = $id_boisson;
+        $this->idBoisson = $idBoisson;
 
         return $this;
     }
@@ -54,16 +55,35 @@ final class BoissonReservation extends DefaultEntity implements \JsonSerializabl
      */
     public function getIdReservation(): ?int
     {
-        return $this->id_reservation;
+        return $this->idReservation;
     }
 
     /**
-     * @param ?int $id_reservation
+     * @param ?int $idReservation
      */
-    public function setIdReservation(?int $id_reservation): self
+    public function setIdReservation(?int $idReservation): self
     {
-        $this->id_reservation = $id_reservation;
+        $this->idReservation = $idReservation;
 
         return $this;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int|null $quantity
+     */
+    public function setQuantity(?int $quantity): self
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
 }

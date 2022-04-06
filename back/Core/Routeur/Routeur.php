@@ -131,6 +131,8 @@ final class Routeur {
     {
         if (isset($path[4]) && is_numeric($path[4])) {
             $controller->delete($path[4]);
+            return ;
         }
+        throw new \Exception("Not Found", 404);
     }
 }
