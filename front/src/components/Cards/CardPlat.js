@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCartPlus } from "react-icons/fa";
+import Swal from "sweetalert2";
 import "./Card.scss";
 
 function CardPlat(data) {
@@ -12,6 +13,7 @@ function CardPlat(data) {
 
   function addToCart(element) {
     localStorage.setItem("plat", JSON.stringify(element));
+    Swal.fire("", "Votre plat a bien été ajouté au panier", "success");
   }
 
   return (

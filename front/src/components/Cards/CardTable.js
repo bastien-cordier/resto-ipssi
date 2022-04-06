@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCartPlus } from "react-icons/fa";
+import Swal from "sweetalert2";
 import "./Card.scss";
 
 function CardTable(data) {
@@ -7,6 +8,7 @@ function CardTable(data) {
 
   function addToCart(element) {
     localStorage.setItem("table", JSON.stringify(element));
+    Swal.fire("", "Votre table a bien été réserver", "success");
   }
 
   return (
