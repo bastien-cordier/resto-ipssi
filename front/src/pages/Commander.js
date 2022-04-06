@@ -12,14 +12,18 @@ const Commander = () => {
         className="img-bandeau"
       />
       <Container className="test">
-        <h3>🇮🇹 Commandez votre pizza</h3>
+        <h3>🍕 Commandez votre pizza</h3>
       </Container>
       <Container className="pizzas">
         <Card />
         <Card />
         <Card />
         <Card />
-        <Card />
+      </Container>
+      <Container className="test">
+        <h3>🥤 Commandez votre boisson</h3>
+      </Container>
+      <Container className="boisson">
         <Card />
         <Card />
         <Card />
