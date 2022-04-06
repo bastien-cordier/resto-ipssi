@@ -73,7 +73,7 @@ export default class Header extends Component {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <a href="/commander" className="logo-commander">
+        <a href="/panier" className="logo-commander">
           <img src="/assets/commander.png" alt="logo" style={{ height: "80px" }} />
         </a>
         {renderAuthHeader()}

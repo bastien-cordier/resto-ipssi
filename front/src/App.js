@@ -33,6 +33,7 @@ import BoEditTable from "./pages/admin/table/BoEditTable";
 import BoCreateUser from "./pages/admin/user/BoCreateUser";
 import BoGetUsers from "./pages/admin/user/BoGetUsers";
 import BoEditUser from "./pages/admin/user/BoEditUser";
+import Panier from "pages/Panier";
 
 function App() {
   useEffect(() => {
@@ -49,6 +50,7 @@ function App() {
           <Route path="/commander" element={<Commander />} />
           <Route path="/reservation" element={<Reserv />} />
 
+          <Route path="/panier" element={<Panier />} />
           <Route path="/inscription" element={<Inscription />} />
           <Route path="/connexion" element={<Connexion />} />
 
