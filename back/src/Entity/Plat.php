@@ -13,13 +13,16 @@ final class Plat extends DefaultEntity implements \JsonSerializable
 
     private ?float $price;
 
+    private ?string $image;
+
     public function jsonSerialize()
     {
         return [
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'price' => $this->price
+            'price' => $this->price,
+            'image' => $this->image
         ];
     }
 
@@ -89,6 +92,30 @@ final class Plat extends DefaultEntity implements \JsonSerializable
     public function setPrice(?float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name
+     *
+     * @return ?string
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set the value of image
+     *
+     * @param ?string $image
+     *
+     * @return self
+     */
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

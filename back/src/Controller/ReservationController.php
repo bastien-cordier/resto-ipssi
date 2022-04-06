@@ -63,6 +63,9 @@ final class ReservationController extends DefaultController
         $this->checkContent($data);
         $array = [
             'email' => $data['email'],
+            'firstName' => $data['firstName'],
+            'lastName' => $data['lastName'],
+            'tel' => $data['tel'],
             'nbPoeple' => $data['nbPoeple'],
             'status' => 'prepare'
         ];
@@ -91,6 +94,9 @@ final class ReservationController extends DefaultController
     private function checkContent(array $data)
     {
         if(!isset($data["email"])
+            || !isset($data["firstName"])
+            || !isset($data["lastName"])
+            || !isset($data["tel"])
             || !isset($data["boissons"])
             || !isset($data["plats"])
             || !isset($data["tables"])

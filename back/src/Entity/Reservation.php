@@ -9,6 +9,12 @@ final class Reservation extends DefaultEntity implements \JsonSerializable
 
     private ?string $email;
 
+    private ?string $firstName;
+    
+    private ?string $lastName;
+
+    private ?string $tel;
+
     private ?string $status;
 
     private ?int $nbPoeple;
@@ -24,6 +30,9 @@ final class Reservation extends DefaultEntity implements \JsonSerializable
         return [
             'id' => $this->id,
             'email' => $this->email,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'tel' => $this->tel,
             'status' => $this->status,
             'nbPoeple' => $this->nbPoeple,
             'plats' => $this->plats,
@@ -144,5 +153,54 @@ final class Reservation extends DefaultEntity implements \JsonSerializable
         $this->tables = $tables;
 
         return $this;
+    }
+
+
+    /**
+     * @return ?string
+     */
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param ?string $firstName
+     */
+    public function setFirstName(?string $firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param ?string $lastName
+     */
+    public function setLastName(?string $lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getTel(): ?string
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param ?string $email
+     */
+    public function setTel(?string $tel): void
+    {
+        $this->tel = $tel;
     }
 }
