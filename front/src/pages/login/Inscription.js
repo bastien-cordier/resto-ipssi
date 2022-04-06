@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import { ApiRequests,, Header, ErrorInfosMessage } from "api/BaseApi";
+import { ApiRequests, Header, ErrorInfosMessage } from "api/BaseApi";
 import Swal from "sweetalert2";
 import "./Log.scss";
 
