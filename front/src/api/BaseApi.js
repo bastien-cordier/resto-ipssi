@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:8000";
+const baseURL = "http://localhost:8000/api/public";
 
 const Token = localStorage.getItem("token");
 
