@@ -1,0 +1,16 @@
+.pizzas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+h3 {
+  font-family: "Courgette", cursive;
+  font-size: 50px;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.img-bandeau {
+  width: 100%;
+}
