@@ -2,8 +2,6 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 import { ApiRequests, Token, Header, ErrorInfosMessage } from "api/BaseApi";
 import Swal from "sweetalert2";
-import axios from "axios";
-
 import "./Log.scss";
 
 export default class Inscription extends Component {
