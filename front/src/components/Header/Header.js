@@ -65,11 +65,11 @@ export default class Header extends Component {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/notre-restaurant">Notre Restaurant</Nav.Link>
-            <Nav.Link href="/commander" style={{ marginLeft: "2em" }}>
+            <Nav.Link href="/commander" style={{ marginLeft: "0.6em" }}>
               Commander
             </Nav.Link>
-            <Nav.Link href="/reservation" style={{ marginLeft: "2em" }}>
-              Réserver
+            <Nav.Link href="/reservation" style={{ marginLeft: "0.6em" }}>
+              Réserver une table
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
