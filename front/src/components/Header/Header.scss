@@ -36,7 +36,7 @@
     text-decoration: none !important;
   }
 
-  a.nav-link:before {
+  a.nav-link:before{
     content: "";
     position: absolute;
     width: 100%;
@@ -53,6 +53,7 @@
     visibility: visible;
     transform: scaleX(1);
   }
+  
 }
 
 .scroll {
