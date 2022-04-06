@@ -1,8 +1,5 @@
 import React from "react";
 import { FaCartPlus } from "react-icons/fa";
-import axios from "axios";
-import { ApiRequests, Header, Token, ErrorTokenMessage } from "api/BaseApi";
-import Swal from "sweetalert2";
 import "./Card.scss";
 
 function Card(data) {
@@ -22,7 +19,6 @@ function Card(data) {
     } else {
       localStorage.setItem("panier", JSON.stringify(element));
     }
-    console.log(JSON.parse(localStorage.getItem("panier")));
   }
 
   return (
