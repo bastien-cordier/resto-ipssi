@@ -12,10 +12,10 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 
-import Commander from "./pages/Commander";
-import Reserv from "./pages/Reserv";
-import Panier from "./pages/Panier";
-import FinishReserv from "./pages/FinishReserv";
+import Commander from "./pages/commande/Commander";
+import Reserv from "./pages/commande/Reserv";
+import Panier from "./pages/commande/Panier";
+import FinishReserv from "./pages/commande/FinishReserv";
 
 import Inscription from "./pages/login/Inscription";
 import Connexion from "./pages/login/Connexion";

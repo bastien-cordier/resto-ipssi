@@ -2,7 +2,7 @@ import React from "react";
 import { FaCartPlus } from "react-icons/fa";
 import "./Card.scss";
 
-function Card(data) {
+function CardBoisson(data) {
   const element = data.data;
 
   let description = "Lorem ipsum dolor sit amet";
@@ -11,14 +11,7 @@ function Card(data) {
   }
 
   function addToCart(element) {
-    if (localStorage.getItem("panier")) {
-      let listPanier = [];
-      listPanier.push(JSON.parse(localStorage.getItem("panier")));
-      listPanier.push(element);
-      localStorage.setItem("panier", JSON.stringify(listPanier));
-    } else {
-      localStorage.setItem("panier", JSON.stringify(element));
-    }
+    localStorage.setItem("boisson", JSON.stringify(element));
   }
 
   return (
@@ -44,4 +37,4 @@ function Card(data) {
   );
 };
 
-export default Card;
+export default CardBoisson;

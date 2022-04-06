@@ -8,7 +8,7 @@ export default class FinishReserv extends Component {
   };
 
   componentDidMount() {
-    if (!localStorage.getItem("panier") || !localStorage.getItem("table")) {
+    if (!localStorage.getItem("plat") || !localStorage.getItem("boisson") || !localStorage.getItem("table")) {
       window.location.href = "/commander";
     }
   }
