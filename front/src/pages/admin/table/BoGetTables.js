@@ -61,7 +61,7 @@ export default class BoGetTables extends Component {
   render() {
     return (
       <Fragment>
-        <Container className="spaces-footer" style={{ paddingTop: "50px" }}>
+        <Container style={{ paddingTop: "50px" }}>
           <h2 className="title-page text-center" style={{ marginBottom: "3rem" }}>
             Gestion des tables
           </h2>

@@ -61,7 +61,7 @@ export default class BoGetPlats extends Component {
   render() {
     return (
       <Fragment>
-        <Container className="spaces-footer">
+        <Container>
           <h2 className="title-page text-center">Gestion des pizzas</h2>
           <Table className="mb-5">
             <thead>

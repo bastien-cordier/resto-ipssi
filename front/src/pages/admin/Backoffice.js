@@ -1,4 +1,7 @@
 import React, { Component, Fragment } from "react";
+import { BiDrink } from "react-icons/bi";
+import { GiTable } from "react-icons/gi";
+import { FaPizzaSlice, FaUserFriends } from "react-icons/fa";
 import { Container, Row, Col } from "react-bootstrap";
 import { Token } from "api/BaseApi";
 import "./Backoffice.scss";
@@ -14,79 +17,76 @@ export default class Backoffice extends Component {
     return (
       <Fragment>
         <Container id="backoffice">
-          <h2 className="title-page text-center">BackOffice</h2>
+          <h2>🛠 BackOffice</h2>
           <div className="text-center">
             <Row>
               <Col sm={6}>
                 <a href="/backoffice/boisson-create">
-                  <button>
-                    <i className="fas fa-plus-circle icons" />
-                    <span>Création d'une boisson</span>
+                  <button className="btn-bo">
+                    <BiDrink style={{ marginRight: "10px" }} />
+                    Création d'une boisson
                   </button>
                 </a>
               </Col>
               <Col sm={6}>
                 <a href="/backoffice/boissons-list">
-                  <button>
-                    <i className="fas fa-pen-to-square icons" />
-                    <span>Gestion des boissons</span>
+                  <button className="btn-bo">
+                    <BiDrink style={{ marginRight: "10px" }} />
+                    Gestion des boissons
                   </button>
                 </a>
               </Col>
             </Row>
-            <br />
             <Row>
               <Col sm={6}>
                 <a href="/backoffice/plat-create">
-                  <button>
-                    <i className="fas fa-plus-circle icons" />
-                    <span>Création d'un plat</span>
+                  <button className="btn-bo">
+                    <FaPizzaSlice style={{ marginRight: "10px" }} />
+                    Création d'une pizza
                   </button>
                 </a>
               </Col>
               <Col sm={6}>
                 <a href="/backoffice/plats-list">
-                  <button>
-                    <i className="fas fa-pen-to-square icons" />
-                    <span>Gestion des plats</span>
+                  <button className="btn-bo">
+                    <FaPizzaSlice style={{ marginRight: "10px" }} />
+                    Gestion des pizzas
                   </button>
                 </a>
               </Col>
             </Row>
-            <br />
             <Row>
               <Col sm={6}>
                 <a href="/backoffice/table-create">
-                  <button>
-                    <i className="fas fa-plus-circle icons" />
-                    <span>Création d'une table</span>
+                  <button className="btn-bo">
+                    <GiTable style={{ marginRight: "10px" }} />
+                    Création d'une table
                   </button>
                 </a>
               </Col>
               <Col sm={6}>
                 <a href="/backoffice/tables-list">
-                  <button>
-                    <i className="fas fa-pen-to-square icons" />
-                    <span>Gestion des tables</span>
+                  <button className="btn-bo">
+                    <GiTable style={{ marginRight: "10px" }} />
+                    Gestion des tables
                   </button>
                 </a>
               </Col>
             </Row>
-            <br />
             <Row>
               <Col sm={6}>
                 <a href="/backoffice/user-create">
-                  <button>
-                    <i className="fas fa-plus-circle icons" />
-                    <span>Création d'un utilisateur</span>
+                  <button className="btn-bo">
+                    <FaUserFriends style={{ marginRight: "10px" }} />
+                    Création d'un utilisateur
                   </button>
                 </a>
               </Col>
               <Col sm={6}>
                 <a href="/backoffice/users-list">
-                  <button>
-                    <i className="fas fa-user-circle icons" />
-                    <span>Gestion des utilisateurs</span>
+                  <button className="btn-bo">
+                    <FaUserFriends style={{ marginRight: "10px" }} />
+                    Gestion des utilisateurs
                   </button>
                 </a>
               </Col>

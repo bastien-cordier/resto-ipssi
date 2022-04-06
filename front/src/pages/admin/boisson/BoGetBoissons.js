@@ -61,8 +61,8 @@ export default class BoGetBoissons extends Component {
   render() {
     return (
       <Fragment>
-        <Container className="spaces-footer">
-          <h2 className="title-page text-center">Gestion des boissons</h2>
+        <Container>
+          <h2 className="text-center">Gestion des boissons</h2>
           <Table className="mb-5">
             <thead>
               <tr>
