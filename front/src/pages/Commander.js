@@ -11,7 +11,8 @@ const Commander = () => {
           alt="banner"
           className="img-bandeau"
         />
-      <h3>🇮🇹 Commandez votre pizza</h3>
+      <Container className="test"><h3>🇮🇹 Commandez votre pizza</h3></Container>
+
       <Container className="pizzas">
         <Card />
         <Card />
