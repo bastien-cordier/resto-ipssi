@@ -6,7 +6,12 @@ import "./Commander.scss";
 const Commander = () => {
   return (
     <div>
-      <h1>Commandez votre pizza</h1>
+      <img
+          src="/assets/banner-commande.png"
+          alt="banner"
+          className="img-bandeau"
+        />
+      <h3>🇮🇹 Commandez votre pizza</h3>
       <Container className="pizzas">
         <Card />
         <Card />
