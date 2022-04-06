@@ -35,18 +35,10 @@ export default class Header extends Component {
         return (
           <div style={{ display: "inherit" }}>
             <a href="/backoffice" className="logo-inscription">
-              <img
-                src="/assets/back-office.png"
-                alt="logo"
-                style={{ height: "80px" }}
-              />
+              <img src="/assets/back-office.png" alt="logo" style={{ height: "80px" }} />
             </a>
             <a href="" onClick={this.logout} className="logo-connexion">
-              <img
-                src="/assets/deconnexion.png"
-                alt="logo"
-                style={{ height: "80px" }}
-              />
+              <img src="/assets/deconnexion.png" alt="logo" style={{ height: "80px" }} />
             </a>
           </div>
         );
@@ -54,18 +46,10 @@ export default class Header extends Component {
         return (
           <div style={{ display: "inherit" }}>
             <a href="/inscription" className="logo-inscription">
-              <img
-                src="/assets/inscription.png"
-                alt="logo"
-                style={{ height: "80px" }}
-              />
+              <img src="/assets/inscription.png" alt="logo" style={{ height: "80px" }} />
             </a>
             <a href="/connexion" className="logo-connexion">
-              <img
-                src="/assets/connexion.png"
-                alt="logo"
-                style={{ height: "80px" }}
-              />
+              <img src="/assets/connexion.png" alt="logo" style={{ height: "80px" }} />
             </a>
           </div>
         );
@@ -73,12 +57,7 @@ export default class Header extends Component {
     };
 
     return (
-      <Navbar
-        collapseOnSelect
-        expand="lg"
-        sticky="top"
-        variant="light"
-      >
+      <Navbar collapseOnSelect expand="lg" sticky="top" variant="light">
         <Navbar.Brand href="/" className="logo-navbar">
           <img src="/assets/logo.png" alt="logo" style={{ height: "140px" }} />
         </Navbar.Brand>
@@ -89,14 +68,13 @@ export default class Header extends Component {
             <Nav.Link href="/commander" style={{ marginLeft: "2em" }}>
               Commander
             </Nav.Link>
+            <Nav.Link href="/reservation" style={{ marginLeft: "2em" }}>
+              Réserver
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <a href="/commander" className="logo-commander">
-          <img
-            src="/assets/commander.png"
-            alt="logo"
-            style={{ height: "80px" }}
-          />
+          <img src="/assets/commander.png" alt="logo" style={{ height: "80px" }} />
         </a>
         {renderAuthHeader()}
       </Navbar>

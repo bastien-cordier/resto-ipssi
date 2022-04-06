@@ -12,6 +12,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 import Commander from "./pages/Commander";
+import Reserv from "./pages/Reserv";
 import Inscription from "./pages/login/Inscription";
 import Connexion from "./pages/login/Connexion";
 
@@ -42,31 +43,32 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home />} />
 
-          <Route path="/notre-restaurant" element={<Restaurant/>} />
-          <Route path="/commander" element={<Commander/>} />
+          <Route path="/notre-restaurant" element={<Restaurant />} />
+          <Route path="/commander" element={<Commander />} />
+          <Route path="/reservation" element={<Reserv />} />
 
-          <Route path="/inscription" element={<Inscription/>} />
-          <Route path="/connexion" element={<Connexion/>} />
+          <Route path="/inscription" element={<Inscription />} />
+          <Route path="/connexion" element={<Connexion />} />
 
-          <Route path="/backoffice" element={<Backoffice/>} />
+          <Route path="/backoffice" element={<Backoffice />} />
 
-          <Route path="/backoffice/boisson-create" element={<BoCreateBoisson/>} />
-          <Route path="/backoffice/boissons-list" element={<BoGetBoissons/>} />
-          <Route exact path="/backoffice/boisson-edit/:id" element={<BoEditBoisson/>} />
+          <Route path="/backoffice/boisson-create" element={<BoCreateBoisson />} />
+          <Route path="/backoffice/boissons-list" element={<BoGetBoissons />} />
+          <Route exact path="/backoffice/boisson-edit/:id" element={<BoEditBoisson />} />
 
-          <Route path="/backoffice/plat-create" element={<BoCreatePlat/>} />
-          <Route path="/backoffice/plats-list" element={<BoGetPlats/>} />
-          <Route path="/backoffice/plat-edit/:id" element={<BoEditPlat/>} />
+          <Route path="/backoffice/plat-create" element={<BoCreatePlat />} />
+          <Route path="/backoffice/plats-list" element={<BoGetPlats />} />
+          <Route path="/backoffice/plat-edit/:id" element={<BoEditPlat />} />
 
-          <Route path="/backoffice/table-create" element={<BoCreateTable/>} />
-          <Route path="/backoffice/tables-list" element={<BoGetTables/>} />
-          <Route path="/backoffice/table-edit/:id" element={<BoEditTable/>} />
+          <Route path="/backoffice/table-create" element={<BoCreateTable />} />
+          <Route path="/backoffice/tables-list" element={<BoGetTables />} />
+          <Route path="/backoffice/table-edit/:id" element={<BoEditTable />} />
 
-          <Route path="/backoffice/user-create" element={<BoCreateUser/>} />
-          <Route path="/backoffice/users-list" element={<BoGetUsers/>} />
-          <Route path="/backoffice/user-edit/:id" element={<BoEditUser/>} />
+          <Route path="/backoffice/user-create" element={<BoCreateUser />} />
+          <Route path="/backoffice/users-list" element={<BoGetUsers />} />
+          <Route path="/backoffice/user-edit/:id" element={<BoEditUser />} />
         </Routes>
         <Footer />
       </BrowserRouter>
