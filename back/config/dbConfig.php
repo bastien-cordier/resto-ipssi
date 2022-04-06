@@ -1,6 +1,6 @@
 <?php
 $dbConfig = [
-    'host' => "localhost",
+    'host' => "localhost:8889",
     'dbname' => "restaurant",
     'user' => "root",
     'password' => "root"

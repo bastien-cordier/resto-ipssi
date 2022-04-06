@@ -1,3 +1,5 @@
+/config/dbConfig.php
+
 vendor
 
 composer.lock
