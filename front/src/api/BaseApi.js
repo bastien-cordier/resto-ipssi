@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:8000";
+const baseURL = "http://localhost:8000/api/public";
 
 const Token = localStorage.getItem("token");
 
@@ -9,7 +9,7 @@ const ErrorInfosMessage = "Les informations qui ont été saisies sont incorrect
 const ErrorUnauthorizedMessage = "Vous session a expiré, <br/> Nous allons vous déconnecter";
 
 const Header = {
-  'Authorization': `Bearer ${Token}`
+  'Authorization': Token
 };
 
 const ApiRequests = {
@@ -17,6 +17,7 @@ const ApiRequests = {
   fetchAuthentications: `${baseURL}/authentication`,
   fetchPlats: `${baseURL}/plat`,
   fetchBoissons: `${baseURL}/boisson`,
+  fetchTables: `${baseURL}/table`,
 };
 
 export { ApiRequests, Token, Header, ErrorTokenMessage, ErrorInfosMessage, ErrorUnauthorizedMessage };
