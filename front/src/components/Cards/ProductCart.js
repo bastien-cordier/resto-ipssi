@@ -1,25 +1,24 @@
 import React from "react";
 
 const ProductCart = (data) => {
-    return(
-        <ol className="gradient-list">
-            {data.datas.map(data => (
-                <li key={data.id}>
-                    <div>
-                        <div>
-                            {data.name}
-                        </div>
-                        <div>
-                            Qty  : {data.quantity}
-                        </div>
-                        <div>
-                            Prix : {data.totalPrice}€
-                        </div>
-                    </div>
-                </li>
-            ))}
-        </ol>
-    )
-}
+  return (
+    <div className="list">
+      {data.datas.map((data) => (
+        <div key={data.id}>
+          <div className="card">
+            <img src={data.image} alt="Boisson" />
+            <div className="content">
+              <h5>{data.name}</h5>
+              <h6>
+                Prix : <strong>{data.totalPrice} €</strong>
+              </h6>
+              <h6>Quantité: {data.quantity}</h6>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default ProductCart;
