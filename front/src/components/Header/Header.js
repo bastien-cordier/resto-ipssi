@@ -68,9 +68,9 @@ export default class Header extends Component {
             <Nav.Link href="/commander" style={{ marginLeft: "0.6em" }}>
               Commander
             </Nav.Link>
-            <Nav.Link href="/finish-reservation" style={{ marginLeft: "0.6em" }}>
-              Finaliser
-            </Nav.Link>
+            {/*<Nav.Link href="/finish-reservation" style={{ marginLeft: "0.6em" }}>*/}
+            {/*  Finaliser*/}
+            {/*</Nav.Link>*/}
           </Nav>
         </Navbar.Collapse>
         <a href="/panier" className="logo-commander">

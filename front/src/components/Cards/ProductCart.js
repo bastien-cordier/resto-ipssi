@@ -13,7 +13,7 @@ const ProductCart = (data) => {
                             Qty  : {data.quantity}
                         </div>
                         <div>
-                            Prix : {data.totalPrice}
+                            Prix : {data.totalPrice}€
                         </div>
                     </div>
                 </li>

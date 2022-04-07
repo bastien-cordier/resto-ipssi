@@ -20,12 +20,23 @@ export default class FinishReserv extends Component {
   tables = [];
 
   componentDidMount() {
-    if (localStorage.getItem("plats") === "[]" || localStorage.getItem("boissons") === "[]") {
+    if (!localStorage.getItem("plats")){
+      localStorage.setItem("plats", JSON.stringify([]));
+    }
+    if(!localStorage.getItem("boissons")){
+      localStorage.setItem("boissons", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("tables")) {
+      localStorage.setItem("tables", JSON.stringify([]));
+    }
+
+    if (localStorage.getItem("plats") === "[]" && localStorage.getItem("boissons") === "[]") {
       window.location.href = "/commander";
     } else {
       this.plats = JSON.parse(localStorage.getItem("plats"));
       this.boissons = JSON.parse(localStorage.getItem("boissons"));
       this.tables = JSON.parse(localStorage.getItem("tables"));
+      this.totalPrice = 0;
 
       this.plats.map(plat => this.totalPrice = this.totalPrice + plat.totalPrice)
       this.boissons.map(boisson => this.totalPrice = this.totalPrice + boisson.totalPrice)
@@ -39,33 +50,20 @@ export default class FinishReserv extends Component {
 
     const currentDate = new Date();
 
-    const plat = {
-      id: this.plats.id,
-      quantity: 1
-    }
-
-    const boisson = {
-      id: this.boissons.id,
-      quantity: 1
-    }
-
-    const table = {
-      id: this.tables.id,
-      quantity: this.tables.slot
-    }
-
     const reservation = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
       tel: this.state.tel,
-      boissons: [boisson],
-      plats: [plat],
-      tables: [table],
-      startDate: currentDate, 
-      endDate: new Date(currentDate.setHours(currentDate.getHours() + 1)),
-      nbPoeple: this.tables.slot,
+      boissons: this.boissons,
+      plats: this.plats,
+      tables: this.tables,
     };
+    if(this.tables.length !== 0){
+      reservation.startDate = currentDate;
+      reservation.endDate = new Date(currentDate.setHours(currentDate.getHours() + 1));
+      reservation.nbPoeple = this.tables.map(table => table.slot);
+    }
 
     Swal.fire({
       title: "Validation de la réservation",
@@ -81,9 +79,9 @@ export default class FinishReserv extends Component {
         axios
           .post(ApiRequests.fetchReservations, reservation, { headers: Header })
           .then(() => {
-            localStorage.removeItem("plat");
-            localStorage.removeItem("boisson");
-            localStorage.removeItem("table");
+            localStorage.removeItem("plats");
+            localStorage.removeItem("boissons");
+            localStorage.removeItem("tables");
 
             Swal.fire("", "Votre réservation a bien été enregistrée", "success").then(() => {
               window.location.href = "/";

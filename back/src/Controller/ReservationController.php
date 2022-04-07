@@ -55,12 +55,6 @@ final class ReservationController extends DefaultController
 
     public function save(array $data)
     {
-        if(!Security::isAuthorized()){
-            self::jsonResponse(["description" => "Access Denied"], 401);
-            return ;
-        }
-
-
         $this->checkContent($data);
 
         $array = [

@@ -32,15 +32,13 @@ export default class Panier extends Component {
       localStorage.setItem("tables", JSON.stringify([]));
     }
 
-    if (
-      localStorage.getItem("plats") === "[]" ||
-      localStorage.getItem("boissons") === "[]"
-    ) {
+    if (localStorage.getItem("plats") === "[]" && localStorage.getItem("boissons") === "[]") {
       this.setState({ hasFetchData: true });
     } else {
       this.plats = JSON.parse(localStorage.getItem("plats"));
       this.boissons = JSON.parse(localStorage.getItem("boissons"));
       this.tables = JSON.parse(localStorage.getItem("tables"));
+      this.totalPrice = 0;
 
       this.plats.map(
         (plat) => (this.totalPrice = this.totalPrice + plat.totalPrice)
@@ -54,9 +52,9 @@ export default class Panier extends Component {
   }
 
   clearLocalStorage() {
-    localStorage.removeItem("plat");
-    localStorage.removeItem("boisson");
-    localStorage.removeItem("table");
+    localStorage.setItem("plats", JSON.stringify([]));
+    localStorage.setItem("boissos", JSON.stringify([]));
+    localStorage.setItem("tables", JSON.stringify([]));
     Swal.fire("", "Votre panier a été vidé", "success").then(() => {
       window.location.href = "/commander";
     });
@@ -100,23 +98,9 @@ export default class Panier extends Component {
                 <></>
               )}
               <ProductCart datas={this.plats} />
-              {this.plats ? (
-                <>
-                  <h4>🥤 Vos Boissons</h4>
-                  <br />
-                </>
-              ) : (
-                <></>
-              )}
+              {this.plats ? (<><h4>🥤 Vos Boissons</h4><br/></>) : (<></>)}
               <ProductCart datas={this.boissons} />
-              {this.plats ? (
-                <>
-                  <h4>Les tables</h4>
-                  <br />
-                </>
-              ) : (
-                <></>
-              )}
+              {this.plats ? (<><h4>Les tables</h4><br/></>) : (<></>)}
               <CardTable data={this.tables} />
             </Container>
             <h3 className="text-center">Prix total: {this.totalPrice} €</h3>
