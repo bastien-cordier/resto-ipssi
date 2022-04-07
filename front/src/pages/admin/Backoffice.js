@@ -21,6 +21,16 @@ export default class Backoffice extends Component {
           <div className="text-center">
             <Row>
               <Col sm={6}>
+                <a href="/backoffice/reservations">
+                  <button className="btn-bo">
+                    <BiDrink style={{ marginRight: "10px" }} />
+                    Gestion des commandes
+                  </button>
+                </a>
+              </Col>
+            </Row>
+            <Row>
+              <Col sm={6}>
                 <a href="/backoffice/boisson-create">
                   <button className="btn-bo">
                     <BiDrink style={{ marginRight: "10px" }} />

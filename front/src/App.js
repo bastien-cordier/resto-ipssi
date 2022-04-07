@@ -37,6 +37,8 @@ import BoCreateUser from "./pages/admin/user/BoCreateUser";
 import BoGetUsers from "./pages/admin/user/BoGetUsers";
 import BoEditUser from "./pages/admin/user/BoEditUser";
 
+import BoReservations from "./pages/admin/reservation/BoReservations";
+
 function App() {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -74,6 +76,8 @@ function App() {
           <Route path="/backoffice/user-create" element={<BoCreateUser />} />
           <Route path="/backoffice/users-list" element={<BoGetUsers />} />
           <Route path="/backoffice/user-edit/:id" element={<BoEditUser />} />
+
+          <Route path="/backoffice/reservations" element={<BoReservations />} />
         </Routes>
         <Footer />
       </BrowserRouter>
