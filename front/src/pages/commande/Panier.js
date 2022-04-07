@@ -3,9 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import { FaCheck } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 import Swal from "sweetalert2";
-import ProductCart from "../../components/Cards/ProductCart";
-import TableCart from "../../components/Cards/TableCart";
-
+import ProductCart from "components/Cards/ProductCart";
+import TableCart from "components/Cards/TableCart";
 import "./Panier.scss";
 
 export default class Panier extends Component {
