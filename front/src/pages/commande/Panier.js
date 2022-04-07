@@ -68,7 +68,7 @@ export default class Panier extends Component {
         ) : !this.state.hasProduct ? (
           <div>
             <img
-              src="/assets/banner-reserv.png"
+              src="/assets/banner-panier.png"
               alt="banner"
               className="img-bandeau"
               style={{ width: "100%" }}
@@ -80,7 +80,7 @@ export default class Panier extends Component {
         ) : (
           <div>
             <img
-              src="/assets/banner-reserv.png"
+              src="/assets/banner-panier.png"
               alt="banner"
               className="img-bandeau"
               style={{ width: "100%" }}
