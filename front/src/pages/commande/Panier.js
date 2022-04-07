@@ -75,8 +75,8 @@ export default class Panier extends Component {
               <CardBoisson data={this.boissons} />
               <CardTable data={this.tables} />
             </Container>
-            <Row>
-              <Col sm={6}>
+            <Row className="row-panier">
+              <Col className="col-panier">
                 <a href="/finish-reservation">
                 <button className="button-valider">
                     <FaCheck /> Valider votre panier
@@ -84,7 +84,7 @@ export default class Panier extends Component {
                   </a>
               </Col>
 
-              <Col sm={6}>
+              <Col className="col-panier">
                 {/*  ajouter un boutton payer */}
                 {/*  ajouter le prix total */}
                 
