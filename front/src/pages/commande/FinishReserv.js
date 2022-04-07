@@ -13,18 +13,22 @@ export default class FinishReserv extends Component {
     email: "",
     tel: "",
   };
-
-  plat = [];
-  boisson = [];
-  table = [];
+  
+  totalPrice = 0;
+  plats = [];
+  boissons = [];
+  tables = [];
 
   componentDidMount() {
-    if (!localStorage.getItem("plat") || !localStorage.getItem("boisson") || !localStorage.getItem("table")) {
+    if (localStorage.getItem("plats") === "[]" || localStorage.getItem("boissons") === "[]") {
       window.location.href = "/commander";
     } else {
-      this.plat = JSON.parse(localStorage.getItem("plat"));
-      this.boisson = JSON.parse(localStorage.getItem("boisson"));
-      this.table = JSON.parse(localStorage.getItem("table"));
+      this.plats = JSON.parse(localStorage.getItem("plats"));
+      this.boissons = JSON.parse(localStorage.getItem("boissons"));
+      this.tables = JSON.parse(localStorage.getItem("tables"));
+
+      this.plats.map(plat => this.totalPrice = this.totalPrice + plat.totalPrice)
+      this.boissons.map(boisson => this.totalPrice = this.totalPrice + boisson.totalPrice)
 
       this.setState({ hasFetchData: true });
     }
@@ -36,18 +40,18 @@ export default class FinishReserv extends Component {
     const currentDate = new Date();
 
     const plat = {
-      id: this.plat.id,
+      id: this.plats.id,
       quantity: 1
     }
 
     const boisson = {
-      id: this.boisson.id,
+      id: this.boissons.id,
       quantity: 1
     }
 
     const table = {
-      id: this.table.id,
-      quantity: this.table.slot
+      id: this.tables.id,
+      quantity: this.tables.slot
     }
 
     const reservation = {
@@ -60,7 +64,7 @@ export default class FinishReserv extends Component {
       tables: [table],
       startDate: currentDate, 
       endDate: new Date(currentDate.setHours(currentDate.getHours() + 1)),
-      nbPoeple: this.table.slot,
+      nbPoeple: this.tables.slot,
     };
 
     Swal.fire({
@@ -104,6 +108,9 @@ export default class FinishReserv extends Component {
           <div>
             <Container className="reserb">
               <h3 className="mb-5 text-center">🛒 Finaliser votre réservation</h3>
+              <Container style={{ marginBottom: "3em" }}>
+                <h3>Prix total: {this.totalPrice} €</h3>
+              </Container>
 
               <form onSubmit={this.handleSubmit}>
                 <Row>

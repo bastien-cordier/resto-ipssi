@@ -6,6 +6,8 @@ import CardBoisson from "components/Cards/CardBoisson";
 import CardTable from "components/Cards/CardTable";
 
 import "./Panier.scss";
+import Swal from "sweetalert2";
+import {FaCartPlus, FaCheck} from "react-icons/fa";
 
 export default class Panier extends Component {
   state = {
@@ -74,6 +76,11 @@ clearLocalStorage() {
             <button type="submit" onClick={this.clearLocalStorage}>Vider votre panier</button>
             {/*  ajouter un boutton payer */}
             {/*  ajouter le prix total */}
+            <a href="/finish-reservation">
+                <button style={{ backgroundColor: "#67c23c", color: "#fff" }} >
+                  <FaCheck /> Valider votre panier
+                </button>
+            </a>
           </div>
         ))}
       </div>
