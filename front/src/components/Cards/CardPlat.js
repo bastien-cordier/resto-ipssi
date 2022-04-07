@@ -16,8 +16,9 @@ function CardPlat(data) {
     const index = plats.findIndex(plat => plat.id.toString() === element.id.toString());
     if(index !== -1){
       plats[index].quantity = parseInt(plats[index].quantity, 10) + 1;
+      plats[index].totalPrice = parseInt(plats[index].quantity, 10) * parseInt(element.price, 10);
     } else {
-      plats.push({id: element.id, quantity: 1});
+      plats.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price});
     }
     localStorage.setItem("plats", JSON.stringify(plats));
 

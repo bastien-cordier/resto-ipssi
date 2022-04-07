@@ -9,6 +9,7 @@ import "./Panier.scss";
 export default class Panier extends Component {
   state = {
     hasFetchData: false,
+    hasProduct: false
   };
 
   plats = [];
@@ -16,14 +17,14 @@ export default class Panier extends Component {
   tables = [];
 
   componentDidMount() {
-    if (!localStorage.getItem("plat") || !localStorage.getItem("boisson") || !localStorage.getItem("table")) {
-      window.location.href = "/commander";
-    } else {
-      this.plats = JSON.parse(localStorage.getItem("plat"));
-      this.boissons = JSON.parse(localStorage.getItem("boisson"));
-      this.tables = JSON.parse(localStorage.getItem("table"));
-
+    if (localStorage.getItem("plats") === "[]" || localStorage.getItem("boissons") === "[]") {
       this.setState({ hasFetchData: true });
+    } else {
+      this.plats = JSON.parse(localStorage.getItem("plats"));
+      this.boissons = JSON.parse(localStorage.getItem("boissons"));
+      this.tables = JSON.parse(localStorage.getItem("tables"));
+
+      this.setState({ hasFetchData: true , hasProduct: true});
     }
   }
 
@@ -32,7 +33,19 @@ export default class Panier extends Component {
       <div>
         {!this.state.hasFetchData ? (
           <div>Chargement…</div>
-        ) : (
+        ) : ( !this.state.hasProduct ? (
+            <div>
+              <img
+                  src="/assets/banner-reserv.png"
+                  alt="banner"
+                  className="img-bandeau"
+                  style={{ width:"100%" }}
+              />
+              <Container className="panier">
+                <h3>🛒 Votre panier est vide</h3>
+              </Container>
+            </div>
+         ):(
           <div>
             <img
               src="/assets/banner-reserv.png"
@@ -48,8 +61,10 @@ export default class Panier extends Component {
               <CardBoisson data={this.boissons}/>
               <CardTable data={this.tables}/>
             </Container>
+            {/*  ajouter un boutton payer */}
+            {/*  ajouter le prix total */}
           </div>
-        )}
+        ))}
       </div>
     );
   }
