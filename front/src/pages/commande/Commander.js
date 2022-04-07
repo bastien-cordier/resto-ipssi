@@ -79,7 +79,7 @@ export default class Commander extends Component {
           ))}
         </Container>
         <Container className="test">
-          <h3>🍽 Reservez votre table</h3>
+          <h3>🍽 Réservez votre table</h3>
         </Container>
         <Container className="pizzas">
           {this.state.tables.map((table) => (
