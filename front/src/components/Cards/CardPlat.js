@@ -21,7 +21,6 @@ function CardPlat(data) {
       plats.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price, name: element.name});
     }
     localStorage.setItem("plats", JSON.stringify(plats));
-
     Swal.fire("", "Votre plat a bien été ajouté au panier", "success");
   }
 

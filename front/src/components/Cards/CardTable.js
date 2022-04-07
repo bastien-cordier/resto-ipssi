@@ -15,6 +15,7 @@ function CardTable(data) {
     } else {
       tables.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price, name: element.name});
     }
+    localStorage.setItem("tables", JSON.stringify(tables));
     Swal.fire("", "Votre table a bien été réserver", "success");
   }
 
