@@ -53,7 +53,7 @@ export default class Panier extends Component {
 
   clearLocalStorage() {
     localStorage.setItem("plats", JSON.stringify([]));
-    localStorage.setItem("boissos", JSON.stringify([]));
+    localStorage.setItem("boissons", JSON.stringify([]));
     localStorage.setItem("tables", JSON.stringify([]));
     Swal.fire("", "Votre panier a été vidé", "success").then(() => {
       window.location.href = "/commander";
