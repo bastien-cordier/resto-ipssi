@@ -122,9 +122,6 @@ export default class Panier extends Component {
               </Col>
 
               <Col className="col-panier">
-                {/*  ajouter un boutton payer */}
-                {/*  ajouter le prix total */}
-
                 <button type="submit" className="button-vider" onClick={this.clearLocalStorage}>
                   <BsFillTrashFill className="icone-panier" />
                   Vider votre panier
