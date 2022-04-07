@@ -13,7 +13,7 @@ function CardTable(data) {
       slot: element.slot,
     });
     localStorage.setItem("tables", JSON.stringify(tables));
-    Swal.fire("", "Votre table a bien été réserver", "success");
+    Swal.fire("", "Votre table a bien été réservée", "success");
   }
 
   return (
