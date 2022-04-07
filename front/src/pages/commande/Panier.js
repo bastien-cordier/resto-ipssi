@@ -125,7 +125,7 @@ export default class Panier extends Component {
               
                 <a href="/finish-reservation">
                   <button className="button-valider">
-                    <FaCheck /> Valider votre panier
+                    <FaCheck className="icone-panier"/> Valider votre panier
                   </button>
                 </a>
               </Col>
@@ -139,7 +139,7 @@ export default class Panier extends Component {
                   className="button-vider"
                   onClick={this.clearLocalStorage}
                 >
-                  <BsFillTrashFill />
+                  <BsFillTrashFill className="icone-panier"/>
                   Vider votre panier
                 </button>
               </Col>
