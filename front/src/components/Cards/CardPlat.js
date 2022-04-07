@@ -18,7 +18,7 @@ function CardPlat(data) {
       plats[index].quantity = parseInt(plats[index].quantity, 10) + 1;
       plats[index].totalPrice = parseInt(plats[index].quantity, 10) * parseInt(element.price, 10);
     } else {
-      plats.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price});
+      plats.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price, name: element.name});
     }
     localStorage.setItem("plats", JSON.stringify(plats));
 

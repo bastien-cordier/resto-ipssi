@@ -18,7 +18,7 @@ function CardBoisson(data) {
       boissons[index].quantity = parseInt(boissons[index].quantity, 10) + 1;
       boissons[index].totalPrice = parseInt(boissons[index].quantity, 10) * parseInt(element.price, 10);
     } else {
-      boissons.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price});
+      boissons.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price, name: element.name});
     }
     localStorage.setItem("boissons", JSON.stringify(boissons));
     Swal.fire("", "Votre boisson a bien été ajouté au panier", "success");
