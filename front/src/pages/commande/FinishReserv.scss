@@ -1,24 +1,24 @@
 .finishReserv {
   height: calc(100vh - 224px);
-}
 
-button {
-  background-color: #bb1a27;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
-  border: none;
-  display: flex;
-  justify-content: center;
-  margin: 30px auto;
-  padding: 10px 50px;
-}
+  button {
+    background-color: #bb1a27;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+    border: none;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 10px 50px;
+  }
 
-button:hover {
-  transform: scale(1.05);
+  button:hover {
+    transform: scale(1.05);
+  }
 }
 
 input {
@@ -32,6 +32,6 @@ input {
   margin-bottom: 1rem;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
