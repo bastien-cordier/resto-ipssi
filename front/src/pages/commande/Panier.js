@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
-import Swal from "sweetalert2";
 import CardPlat from "components/Cards/CardPlat";
 import CardBoisson from "components/Cards/CardBoisson";
 import CardTable from "components/Cards/CardTable";
