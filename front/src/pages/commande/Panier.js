@@ -6,6 +6,8 @@ import Swal from "sweetalert2";
 import CardPlat from "components/Cards/CardPlat";
 import CardBoisson from "components/Cards/CardBoisson";
 import CardTable from "components/Cards/CardTable";
+import ProductCart from "../../components/Cards/ProductCart";
+
 import "./Panier.scss";
 
 export default class Panier extends Component {
@@ -14,11 +16,22 @@ export default class Panier extends Component {
     hasProduct: false,
   };
 
+  totalPrice = 0;
   plats = [];
   boissons = [];
   tables = [];
 
   componentDidMount() {
+    if (!localStorage.getItem("plats")) {
+      localStorage.setItem("plats", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("boissons")) {
+      localStorage.setItem("boissons", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("tables")) {
+      localStorage.setItem("tables", JSON.stringify([]));
+    }
+
     if (
       localStorage.getItem("plats") === "[]" ||
       localStorage.getItem("boissons") === "[]"
@@ -28,6 +41,13 @@ export default class Panier extends Component {
       this.plats = JSON.parse(localStorage.getItem("plats"));
       this.boissons = JSON.parse(localStorage.getItem("boissons"));
       this.tables = JSON.parse(localStorage.getItem("tables"));
+
+      this.plats.map(
+        (plat) => (this.totalPrice = this.totalPrice + plat.totalPrice)
+      );
+      this.boissons.map(
+        (boisson) => (this.totalPrice = this.totalPrice + boisson.totalPrice)
+      );
 
       this.setState({ hasFetchData: true, hasProduct: true });
     }
@@ -70,24 +90,50 @@ export default class Panier extends Component {
             <Container style={{ marginBottom: "3em" }}>
               <h3>🛒 Votre panier</h3>
             </Container>
-            <Container className="panier">
-              <CardPlat data={this.plats} />
-              <CardBoisson data={this.boissons} />
+            <Container>
+              {this.plats ? (
+                <>
+                  <h4>🍕 Vos Plats </h4>
+                  <br />
+                </>
+              ) : (
+                <></>
+              )}
+              <ProductCart datas={this.plats} />
+              {this.plats ? (
+                <>
+                  <h4>🥤 Vos Boissons</h4>
+                  <br />
+                </>
+              ) : (
+                <></>
+              )}
+              <ProductCart datas={this.boissons} />
+              {this.plats ? (
+                <>
+                  <h4>Les tables</h4>
+                  <br />
+                </>
+              ) : (
+                <></>
+              )}
               <CardTable data={this.tables} />
             </Container>
+            <h3 className="text-center">Prix total: {this.totalPrice} €</h3>
             <Row className="row-panier">
               <Col className="col-panier">
+              
                 <a href="/finish-reservation">
-                <button className="button-valider">
+                  <button className="button-valider">
                     <FaCheck /> Valider votre panier
                   </button>
-                  </a>
+                </a>
               </Col>
 
               <Col className="col-panier">
                 {/*  ajouter un boutton payer */}
                 {/*  ajouter le prix total */}
-                
+
                 <button
                   type="submit"
                   className="button-vider"
@@ -96,7 +142,6 @@ export default class Panier extends Component {
                   <BsFillTrashFill />
                   Vider votre panier
                 </button>
-                
               </Col>
             </Row>
           </div>
