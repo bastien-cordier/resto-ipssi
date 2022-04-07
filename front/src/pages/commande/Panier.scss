@@ -7,3 +7,21 @@
     margin-bottom: 1.2em;
   }
 }
+button {
+  background-color: #bb1a27;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  border: none;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  padding: 10px 50px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

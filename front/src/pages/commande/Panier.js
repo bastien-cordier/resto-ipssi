@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
+import Swal from "sweetalert2";
 import CardPlat from "components/Cards/CardPlat";
 import CardBoisson from "components/Cards/CardBoisson";
 import CardTable from "components/Cards/CardTable";
@@ -31,6 +32,15 @@ export default class Panier extends Component {
     }
   }
 
+clearLocalStorage() {
+  localStorage.removeItem("plat");
+  localStorage.removeItem("boisson");
+  localStorage.removeItem("table");
+  Swal.fire("", "Votre panier a été vidé", "success").then(() => {
+    window.location.href = "/commander";
+  });
+}
+
   render() {
     return (
       <div>
@@ -52,6 +62,7 @@ export default class Panier extends Component {
               <CardBoisson data={this.boissons} />
               <CardTable data={this.tables} />
             </Container>
+            <button type="submit" onClick={this.clearLocalStorage}>Vider votre panier</button>
           </div>
         )}
       </div>
