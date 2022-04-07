@@ -49,7 +49,7 @@ export default class BoReservations extends Component {
                         headers: Header,
                     })
                     .then(() => {
-                        Swal.fire("", "Votre pizza a bien été supprimée", "success").then(() => {
+                        Swal.fire("", "la reservation a bien été supprimée", "success").then(() => {
                             window.location.reload(false);
                         });
                     })
@@ -58,7 +58,7 @@ export default class BoReservations extends Component {
                         Swal.fire("", ErrorTokenMessage, "error");
                     });
             } else if (result.isDenied) {
-                Swal.fire("", "Votre pizza n'a pas été supprimée", "error");
+                Swal.fire("", "la reservation n'a pas été supprimée", "error");
             }
         });
     }
