@@ -3,10 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import { FaCheck } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 import Swal from "sweetalert2";
-import CardPlat from "components/Cards/CardPlat";
-import CardBoisson from "components/Cards/CardBoisson";
-import CardTable from "components/Cards/CardTable";
 import ProductCart from "../../components/Cards/ProductCart";
+import TableCart from "../../components/Cards/TableCart";
 
 import "./Panier.scss";
 
@@ -40,12 +38,8 @@ export default class Panier extends Component {
       this.tables = JSON.parse(localStorage.getItem("tables"));
       this.totalPrice = 0;
 
-      this.plats.map(
-        (plat) => (this.totalPrice = this.totalPrice + plat.totalPrice)
-      );
-      this.boissons.map(
-        (boisson) => (this.totalPrice = this.totalPrice + boisson.totalPrice)
-      );
+      this.plats.map((plat) => (this.totalPrice = this.totalPrice + plat.totalPrice));
+      this.boissons.map((boisson) => (this.totalPrice = this.totalPrice + boisson.totalPrice));
 
       this.setState({ hasFetchData: true, hasProduct: true });
     }
@@ -78,7 +72,7 @@ export default class Panier extends Component {
             </Container>
           </div>
         ) : (
-          <div>
+          <div className="myCart">
             <img
               src="/assets/banner-panier.png"
               alt="banner"
@@ -98,32 +92,38 @@ export default class Panier extends Component {
                 <></>
               )}
               <ProductCart datas={this.plats} />
-              {this.plats ? (<><h4>🥤 Vos Boissons</h4><br/></>) : (<></>)}
+              {this.plats ? (
+                <>
+                  <h4>🥤 Vos Boissons</h4>
+                  <br />
+                </>
+              ) : (
+                <></>
+              )}
               <ProductCart datas={this.boissons} />
-              {this.plats ? (<><h4>Les tables</h4><br/></>) : (<></>)}
-              <CardTable data={this.tables} />
+              {this.plats ? (
+                <>
+                  <h4>🍽 Votre table</h4>
+                  <br />
+                </>
+              ) : (
+                <></>
+              )}
+              <TableCart data={this.tables} />
             </Container>
             <h3 className="text-center">Prix total: {this.totalPrice} €</h3>
             <Row className="row-panier">
               <Col className="col-panier">
-              
                 <a href="/finish-reservation">
                   <button className="button-valider">
-                    <FaCheck className="icone-panier"/> Valider votre panier
+                    <FaCheck className="icone-panier" /> Valider votre panier
                   </button>
                 </a>
               </Col>
 
               <Col className="col-panier">
-                {/*  ajouter un boutton payer */}
-                {/*  ajouter le prix total */}
-
-                <button
-                  type="submit"
-                  className="button-vider"
-                  onClick={this.clearLocalStorage}
-                >
-                  <BsFillTrashFill className="icone-panier"/>
+                <button type="submit" className="button-vider" onClick={this.clearLocalStorage}>
+                  <BsFillTrashFill className="icone-panier" />
                   Vider votre panier
                 </button>
               </Col>

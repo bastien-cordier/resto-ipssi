@@ -6,22 +6,24 @@ import "./Card.scss";
 function CardBoisson(data) {
   const element = data.data;
 
-  let description = "Lorem ipsum dolor sit amet";
-  if (element.description) {
-    description = element.description.substring(0, 26);
-  }
-
   function addToCart(element) {
     let boissons = JSON.parse(localStorage.getItem("boissons"));
-    const index = boissons.findIndex(plat => plat.id.toString() === element.id.toString());
-    if(index !== -1){
+    const index = boissons.findIndex((plat) => plat.id.toString() === element.id.toString());
+    if (index !== -1) {
       boissons[index].quantity = parseInt(boissons[index].quantity, 10) + 1;
-      boissons[index].totalPrice = parseInt(boissons[index].quantity, 10) * parseInt(element.price, 10);
+      boissons[index].totalPrice =
+        parseInt(boissons[index].quantity, 10) * parseInt(element.price, 10);
     } else {
-      boissons.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price, name: element.name});
+      boissons.push({
+        id: element.id,
+        quantity: 1,
+        image: element.image,
+        totalPrice: element.price,
+        name: element.name,
+      });
     }
     localStorage.setItem("boissons", JSON.stringify(boissons));
-    Swal.fire("", "Votre boisson a bien été ajouté au panier", "success");
+    Swal.fire("", "Votre boisson a bien été ajoutée au panier", "success");
   }
 
   return (
