@@ -161,6 +161,26 @@ export default class FinishReserv extends Component {
                     />
                   </Col>
                 </Row>
+                <Row>
+                  <Col sm={8}>
+                    <label htmlFor="card">Credit Card</label>
+                    <input
+                      type="text"
+                      placeholder="4242 4242 4242 4242"
+                      id="card"
+                      name="card"
+                      required
+                    />
+                  </Col>
+                  <Col sm={2}>
+                    <label htmlFor="CVV">CVV</label>
+                    <input type="text" placeholder="007" id="cvv" name="cvv" required />
+                  </Col>
+                  <Col sm={2}>
+                    <label htmlFor="Date">Date</label>
+                    <input type="text" placeholder="12/2024" id="date" name="date" required />
+                  </Col>
+                </Row>
                 <button type="submit">Valider</button>
               </form>
             </Container>

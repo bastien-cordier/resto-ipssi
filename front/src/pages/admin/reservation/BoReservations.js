@@ -107,7 +107,7 @@ export default class BoReservations extends Component {
                   <td>{reservation.firstName}</td>
                   <td>{reservation.lastName}</td>
                   <td>{reservation.tel}</td>
-                  <td>{reservation.price}</td>
+                  <td>{reservation.price} €</td>
                   <td>{reservation.status}</td>
                   <td>
                     {reservation.status === "prepare" ? (
