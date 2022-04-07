@@ -16,7 +16,11 @@ export default class Panier extends Component {
   tables = [];
 
   componentDidMount() {
-    if (!localStorage.getItem("plat") || !localStorage.getItem("boisson") || !localStorage.getItem("table")) {
+    if (
+      !localStorage.getItem("plat") ||
+      !localStorage.getItem("boisson") ||
+      !localStorage.getItem("table")
+    ) {
       window.location.href = "/commander";
     } else {
       this.plats = JSON.parse(localStorage.getItem("plat"));
@@ -38,15 +42,15 @@ export default class Panier extends Component {
               src="/assets/banner-reserv.png"
               alt="banner"
               className="img-bandeau"
-              style={{ width:"100%" }}
+              style={{ width: "100%" }}
             />
-            <Container className="panier">
+            <Container style={{ marginBottom: "3em" }}>
               <h3>🛒 Votre panier</h3>
             </Container>
             <Container className="panier">
-              <CardPlat data={this.plats}/>
-              <CardBoisson data={this.boissons}/>
-              <CardTable data={this.tables}/>
+              <CardPlat data={this.plats} />
+              <CardBoisson data={this.boissons} />
+              <CardTable data={this.tables} />
             </Container>
           </div>
         )}
@@ -54,4 +58,3 @@ export default class Panier extends Component {
     );
   }
 }
-
