@@ -91,15 +91,32 @@ export default class Panier extends Component {
               {this.plats ? (<><h4>Les tables</h4><br/></>) : (<></>)}
               <CardTable data={this.tables} />
             </Container>
-            <button type="submit" onClick={this.clearLocalStorage}>Vider votre panier</button>
+            {/*<button type="submit" onClick={this.clearLocalStorage}>Vider votre panier</button>*/}
 
             <h3>Prix total: {this.totalPrice} €</h3>
+            <Row>
+              <Col sm={6}>
 
             <a href="/finish-reservation">
-                <button style={{ backgroundColor: "#67c23c", color: "#fff" }} >
+                <button className="button-valider">
                   <FaCheck /> Valider votre panier
                 </button>
-                
+            </a>
+              </Col>
+
+              <Col sm={6}>
+                {/*  ajouter un boutton payer */}
+                {/*  ajouter le prix total */}
+
+                <button
+                    type="submit"
+                    className="button-vider"
+                    onClick={this.clearLocalStorage}
+                >
+                  <BsFillTrashFill />
+                  Vider votre panier
+                </button>
+
               </Col>
             </Row>
           </div>
