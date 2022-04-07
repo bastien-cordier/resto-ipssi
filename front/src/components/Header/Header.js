@@ -45,9 +45,9 @@ export default class Header extends Component {
       } else {
         return (
           <div style={{ display: "inherit" }}>
-            <a href="/inscription" className="logo-inscription">
-              <img src="/assets/inscription.png" alt="logo" style={{ height: "80px" }} />
-            </a>
+            {/*<a href="/inscription" className="logo-inscription">*/}
+            {/*  <img src="/assets/inscription.png" alt="logo" style={{ height: "80px" }} />*/}
+            {/*</a>*/}
             <a href="/connexion" className="logo-connexion">
               <img src="/assets/connexion.png" alt="logo" style={{ height: "80px" }} />
             </a>
