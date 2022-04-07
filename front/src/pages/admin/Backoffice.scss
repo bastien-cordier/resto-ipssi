@@ -21,6 +21,50 @@
       transform: scale(1.05);
     }
   }
+  .btn-add {
+    background-color: #bb1a27;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .btn-add:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+  }
+
+  .btn-edit {
+    background-color: #ffc105;
+    border: none;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .btn-edit:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+  }
+
+  .btn-delete {
+    background-color: #dc3545;
+    border: none;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .btn-delete:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+  }
 }
 .btn-back-menu {
   padding: 10px 40px;
@@ -35,51 +79,6 @@
   &:hover {
     transform: scale(1.05);
   }
-}
-
-.btn-add {
-  background-color: #bb1a27;
-  border: none;
-  padding: 10px 20px 10px 20px;
-  border-radius: 50px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.btn-add:hover {
-  opacity: 0.8;
-  transition: 0.4s;
-}
-
-.btn-edit {
-  background-color: #ffc105;
-  border: none;
-  padding: 10px 15px 10px 15px;
-  border-radius: 50px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.btn-edit:hover {
-  opacity: 0.8;
-  transition: 0.4s;
-}
-
-.btn-delete {
-  background-color: #dc3545;
-  border: none;
-  padding: 10px 15px 10px 15px;
-  border-radius: 50px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.btn-delete:hover {
-  opacity: 0.8;
-  transition: 0.4s;
 }
 
 /* FORMS BACKOFFICE */
@@ -233,4 +232,36 @@ td {
     height: 150px;
     border-radius: 10px;
   }
+}
+
+.btn-check-green {
+  background-color: #67c23c;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.btn-load-orange {
+  margin-left: 1em;
+  background-color: #ffc105;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.btn-delete-red {
+  margin-left: 1em;
+  background-color: #bb1a27;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
 }

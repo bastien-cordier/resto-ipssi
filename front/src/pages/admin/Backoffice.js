@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { BiDrink } from "react-icons/bi";
-import { GiTable } from "react-icons/gi";
+import { GiTable, GiCardboardBox } from "react-icons/gi";
 import { FaPizzaSlice, FaUserFriends } from "react-icons/fa";
 import { Container, Row, Col } from "react-bootstrap";
 import { Token } from "api/BaseApi";
@@ -19,16 +19,6 @@ export default class Backoffice extends Component {
         <Container className="backoffice">
           <h2>🛠 BackOffice</h2>
           <div className="text-center">
-            <Row>
-              <Col sm={6}>
-                <a href="/backoffice/reservations">
-                  <button className="btn-bo">
-                    <BiDrink style={{ marginRight: "10px" }} />
-                    Gestion des commandes
-                  </button>
-                </a>
-              </Col>
-            </Row>
             <Row>
               <Col sm={6}>
                 <a href="/backoffice/boisson-create">
@@ -85,10 +75,10 @@ export default class Backoffice extends Component {
             </Row>
             <Row>
               <Col sm={6}>
-                <a href="/backoffice/user-create">
+                <a href="/backoffice/reservations">
                   <button className="btn-bo">
-                    <FaUserFriends style={{ marginRight: "10px" }} />
-                    Création d'un utilisateur
+                    <GiCardboardBox style={{ marginRight: "10px" }} />
+                    Gestion des commandes
                   </button>
                 </a>
               </Col>
