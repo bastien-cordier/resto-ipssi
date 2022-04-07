@@ -72,7 +72,7 @@ export default class Header extends Component {
               Réserver une table
             </Nav.Link>
             <Nav.Link href="/finish-reservation" style={{ marginLeft: "0.6em" }}>
-              Finaliser ma réservation
+              Finaliser
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

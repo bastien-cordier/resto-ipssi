@@ -14,13 +14,17 @@ function CardTable(data) {
   return (
     <div className="cardCommander">
       <div className="card">
-        <img src="assets/pizza-card.jpeg" alt="Pizza" />
+        <img src="assets/reserv-table.jpeg" alt="Table" />
         <div className="content">
           <h4>Table N°{element.id}</h4>
-          <h6>Description : Lorem ipsum dolor sit amet</h6>
-          <h6>Nombre de places : <strong>{element.slot}</strong></h6>
+          <h6>
+            Nombre de places : <strong>{element.slot}</strong>
+          </h6>
           <div className="buttons">
-            <button onClick={() => addToCart(element)} style={{ backgroundColor: "#67c23c", color: "#fff" }}>
+            <button
+              onClick={() => addToCart(element)}
+              style={{ backgroundColor: "#67c23c", color: "#fff" }}
+            >
               <FaCartPlus />
             </button>
           </div>
@@ -28,6 +32,6 @@ function CardTable(data) {
       </div>
     </div>
   );
-};
+}
 
 export default CardTable;

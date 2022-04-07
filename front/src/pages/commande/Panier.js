@@ -51,15 +51,15 @@ export default class Panier extends Component {
               src="/assets/banner-reserv.png"
               alt="banner"
               className="img-bandeau"
-              style={{ width:"100%" }}
+              style={{ width: "100%" }}
             />
-            <Container className="panier">
+            <Container style={{ marginBottom: "3em" }}>
               <h3>🛒 Votre panier</h3>
             </Container>
             <Container className="panier">
-              <CardPlat data={this.plats}/>
-              <CardBoisson data={this.boissons}/>
-              <CardTable data={this.tables}/>
+              <CardPlat data={this.plats} />
+              <CardBoisson data={this.boissons} />
+              <CardTable data={this.tables} />
             </Container>
             {/*  ajouter un boutton payer */}
             {/*  ajouter le prix total */}
@@ -69,4 +69,3 @@ export default class Panier extends Component {
     );
   }
 }
-

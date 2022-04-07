@@ -27,15 +27,17 @@ function CardBoisson(data) {
   return (
     <div className="cardCommander">
       <div className="card">
-        <img src={element.image} alt="Pizza" />
+        <img src={element.image} alt="Boisson" />
         <div className="content">
           <h4>{element.name}</h4>
-          <h6>Description : {description}</h6>
           <h6>
             Prix : <strong>{element.price} €</strong>
           </h6>
           <div className="buttons">
-            <button onClick={() => addToCart(element)} style={{ backgroundColor: "#67c23c", color: "#fff" }}>
+            <button
+              onClick={() => addToCart(element)}
+              style={{ backgroundColor: "#67c23c", color: "#fff" }}
+            >
               <FaCartPlus />
             </button>
           </div>
