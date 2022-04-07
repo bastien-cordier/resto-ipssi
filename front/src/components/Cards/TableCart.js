@@ -8,8 +8,7 @@ const TableCart = (data) => {
           <div className="card">
             <img src="assets/reserv-table.jpeg" alt="Boisson" />
             <div className="content">
-              <h5>Hello</h5>
-              <h6>Places: Hi</h6>
+              <h5>Places : {data.slot}</h5>
             </div>
           </div>
         </div>

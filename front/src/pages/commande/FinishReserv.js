@@ -13,17 +13,17 @@ export default class FinishReserv extends Component {
     email: "",
     tel: "",
   };
-  
+
   totalPrice = 0;
   plats = [];
   boissons = [];
   tables = [];
 
   componentDidMount() {
-    if (!localStorage.getItem("plats")){
+    if (!localStorage.getItem("plats")) {
       localStorage.setItem("plats", JSON.stringify([]));
     }
-    if(!localStorage.getItem("boissons")){
+    if (!localStorage.getItem("boissons")) {
       localStorage.setItem("boissons", JSON.stringify([]));
     }
     if (!localStorage.getItem("tables")) {
@@ -38,8 +38,8 @@ export default class FinishReserv extends Component {
       this.tables = JSON.parse(localStorage.getItem("tables"));
       this.totalPrice = 0;
 
-      this.plats.map(plat => this.totalPrice = this.totalPrice + plat.totalPrice)
-      this.boissons.map(boisson => this.totalPrice = this.totalPrice + boisson.totalPrice)
+      this.plats.map((plat) => (this.totalPrice = this.totalPrice + plat.totalPrice));
+      this.boissons.map((boisson) => (this.totalPrice = this.totalPrice + boisson.totalPrice));
 
       this.setState({ hasFetchData: true });
     }
@@ -59,10 +59,12 @@ export default class FinishReserv extends Component {
       plats: this.plats,
       tables: this.tables,
     };
-    if(this.tables.length !== 0){
+    if (this.tables.length !== 0) {
       reservation.startDate = currentDate;
       reservation.endDate = new Date(currentDate.setHours(currentDate.getHours() + 1));
-      reservation.nbPoeple = this.tables.map(table => table.slot);
+
+      reservation.nbPoeple = 0;
+      this.tables.map((table) => (reservation.nbPoeple = reservation.nbPoeple + table.slot));
     }
 
     Swal.fire({
@@ -95,7 +97,7 @@ export default class FinishReserv extends Component {
         Swal.fire("", "Votre réservation n'a pas été enregistrée", "error");
       }
     });
-  }
+  };
 
   render() {
     return (
