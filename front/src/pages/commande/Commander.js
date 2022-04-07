@@ -14,6 +14,15 @@ export default class Commander extends Component {
   };
 
   componentDidMount() {
+      if (!localStorage.getItem("plats")){
+          localStorage.setItem("plats", JSON.stringify([]));
+      }
+      if(!localStorage.getItem("boissons")){
+          localStorage.setItem("boissons", JSON.stringify([]));
+      }
+      if (!localStorage.getItem("tables")) {
+          localStorage.setItem("tables", JSON.stringify([]));
+      }
     axios
       .get(ApiRequests.fetchPlats)
       .then((fetchPlats) => {

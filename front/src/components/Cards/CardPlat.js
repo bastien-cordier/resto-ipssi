@@ -12,14 +12,22 @@ function CardPlat(data) {
   }
 
   function addToCart(element) {
-    localStorage.setItem("plat", JSON.stringify(element));
+    let plats = JSON.parse(localStorage.getItem("plats"));
+    const index = plats.findIndex(plat => plat.id.toString() === element.id.toString());
+    if(index !== -1){
+      plats[index].quantity = parseInt(plats[index].quantity, 10) + 1;
+    } else {
+      plats.push({id: element.id, quantity: 1});
+    }
+    localStorage.setItem("plats", JSON.stringify(plats));
+
     Swal.fire("", "Votre plat a bien été ajouté au panier", "success");
   }
 
   return (
     <div className="cardCommander">
       <div className="card">
-        <img src="assets/pizza-card.jpeg" alt="Pizza" />
+        <img src={element.image} alt="Pizza" />
         <div className="content">
           <h4>{element.name}</h4>
           <h6>Description : {description}</h6>
@@ -33,6 +41,6 @@ function CardPlat(data) {
       </div>
     </div>
   );
-};
+}
 
 export default CardPlat;

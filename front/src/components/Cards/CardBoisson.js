@@ -12,7 +12,14 @@ function CardBoisson(data) {
   }
 
   function addToCart(element) {
-    localStorage.setItem("boisson", JSON.stringify(element));
+    let boissons = JSON.parse(localStorage.getItem("boissons"));
+    const index = boissons.findIndex(plat => plat.id.toString() === element.id.toString());
+    if(index !== -1){
+      boissons[index].quantity = parseInt(boissons[index].quantity, 10) + 1;
+    } else {
+      boissons.push({id: element.id, quantity: 1});
+    }
+    localStorage.setItem("boissons", JSON.stringify(boissons));
     Swal.fire("", "Votre boisson a bien été ajouté au panier", "success");
   }
 
@@ -27,7 +34,7 @@ function CardBoisson(data) {
             Prix : <strong>{element.price} €</strong>
           </h6>
           <div className="buttons">
-            <button style={{ backgroundColor: "#67c23c", color: "#fff" }}>
+            <button onClick={() => addToCart(element)} style={{ backgroundColor: "#67c23c", color: "#fff" }}>
               <FaCartPlus />
             </button>
           </div>
@@ -35,6 +42,6 @@ function CardBoisson(data) {
       </div>
     </div>
   );
-};
+}
 
 export default CardBoisson;
