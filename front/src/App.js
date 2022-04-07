@@ -13,7 +13,6 @@ import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 
 import Commander from "./pages/commande/Commander";
-import Reserv from "./pages/commande/Reserv";
 import Panier from "./pages/commande/Panier";
 import FinishReserv from "./pages/commande/FinishReserv";
 
@@ -52,7 +51,6 @@ function App() {
           <Route path="/notre-restaurant" element={<Restaurant />} />
 
           <Route path="/commander" element={<Commander />} />
-          <Route path="/reservation" element={<Reserv />} />
           <Route path="/panier" element={<Panier />} />
           <Route path="/finish-reservation" element={<FinishReserv />} />
 

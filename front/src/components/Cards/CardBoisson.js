@@ -12,7 +12,15 @@ function CardBoisson(data) {
   }
 
   function addToCart(element) {
-    localStorage.setItem("boisson", JSON.stringify(element));
+    let boissons = JSON.parse(localStorage.getItem("boissons"));
+    const index = boissons.findIndex(plat => plat.id.toString() === element.id.toString());
+    if(index !== -1){
+      boissons[index].quantity = parseInt(boissons[index].quantity, 10) + 1;
+      boissons[index].totalPrice = parseInt(boissons[index].quantity, 10) * parseInt(element.price, 10);
+    } else {
+      boissons.push({id: element.id, quantity: 1, image: element.image, totalPrice: element.price});
+    }
+    localStorage.setItem("boissons", JSON.stringify(boissons));
     Swal.fire("", "Votre boisson a bien été ajouté au panier", "success");
   }
 
