@@ -27,7 +27,7 @@ function CardBoisson(data) {
             Prix : <strong>{element.price} €</strong>
           </h6>
           <div className="buttons">
-            <button style={{ backgroundColor: "#67c23c", color: "#fff" }}>
+            <button onClick={() => addToCart(element)} style={{ backgroundColor: "#67c23c", color: "#fff" }}>
               <FaCartPlus />
             </button>
           </div>
