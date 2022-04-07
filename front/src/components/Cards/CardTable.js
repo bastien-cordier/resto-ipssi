@@ -14,7 +14,7 @@ function CardTable(data) {
   return (
     <div className="cardCommander">
       <div className="card">
-        <img src="assets/pizza-card.jpeg" alt="Pizza" />
+        <img src={element.image} alt="Table" />
         <div className="content">
           <h4>Table N°{element.id}</h4>
           <h6>Description : Lorem ipsum dolor sit amet</h6>

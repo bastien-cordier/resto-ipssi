@@ -19,7 +19,7 @@ function CardBoisson(data) {
   return (
     <div className="cardCommander">
       <div className="card">
-        <img src={element.image} alt="Pizza" />
+        <img src={element.image} alt="Boisson" />
         <div className="content">
           <h4>{element.name}</h4>
           <h6>Description : {description}</h6>
